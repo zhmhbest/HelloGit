@@ -18,11 +18,14 @@
 
 ### 提交文件到仓库
 
-    # 添加到暂存区
+    # 添加文件到暂存区
     git add <filename>
     git add ...
-    
-    # 提交到仓库（创建版本记录）
+
+    # 提交删除
+    git rm <filename>
+
+    # 提交修改到本地仓库（创建版本记录）
     git commit -m <message>
 
 ### 查看提交记录
@@ -41,9 +44,9 @@
 
 ### 放弃文件的修改
 
-    # 放弃 暂存区修改（以下任选其一）
+    # 放弃 暂存区修改
+    # git reset HEAD <filename>
     git restore --staged <filename> 
-    git reset HEAD <filename>
 
     # 放弃 工作区修改
     git checkout -- <filename>
