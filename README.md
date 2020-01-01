@@ -4,9 +4,11 @@
 
 ## 配置用户名
 
-    git config --global user.name "zhmhbest"
-    git config --global user.email "zhmhbest@gmail.com"
-    # notepad %Userprofile%\.gitconfig
+```bash
+git config --global user.name "zhmhbest"
+git config --global user.email "zhmhbest@gmail.com"
+# notepad %Userprofile%\.gitconfig
+```
 
 ## 本地使用
 
@@ -96,17 +98,12 @@
 ## 分支管理
 
 ### 查看分支
+
     # 查看本地所有分支
     git branch
     
     # 查看本地所有分支（包括指纹）
     git branch -v
-
-    # 查看云端所有分支
-    git branch -vr
-
-    # 查看本地和远程所有分支
-    git branch -va
 
 ### 创建分支
 
@@ -131,18 +128,21 @@
 
 ### 合并分支
 
+>冲突类型
+>1. 两个分支对同一个文件做了修改
+>    - 合并后，需要手动修改该文件并做一次提交。
+>2. 两个分支分别新增了各自的文件
+>    - 合并后，Git会自动再做一次提交。
+
     # 快速合并（Fast-forward）指定分支到当前分支
     git merge <branchname>
 
     # 禁用快速合并（合并后重新做一次新的提交）
     git merge --no-ff <branchname> -m <message>
 
-#### 冲突类型
-
-1. 两个分支对同一个文件做了修改
-    - 合并后，需要手动修改该文件并做一次提交。
-2. 两个分支分别新增了各自的文件
-    - 合并后，Git会自动再做一次提交。
+    # 查看已合并、未合并的分支
+    git branch --merged
+    git branch --no-merged
  
 ## 云端联动
 
