@@ -17,34 +17,45 @@
     git init
 
 ### 提交文件到仓库
-    
+
     # 添加到暂存区
     git add <filename>
     git add ...
-    # 提交到仓库
+    
+    # 提交到仓库（创建版本记录）
     git commit -m <message>
 
 ### 查看提交记录
 
-    git log
     #从最近到最远的显示提交记录（包括作者和日期）
+    git log
 
-    git log --pretty=oneline
     # 精简显示
+    git log --pretty=oneline
 
-### 查看已修改和未添加的文件
+### 查看工作区状态
 
+    # 红色：已修改或未添加文件
+    # 绿色：已添加到暂存区的文件
     git status
 
 ### 放弃文件的修改
 
+    # 放弃 暂存区修改（以下任选其一）
+    git restore --staged <filename> 
+    git reset HEAD <filename>
+
+    # 放弃 工作区修改
     git checkout -- <filename>
-    # 回到和版本库一样的状态 或
-    # 回到添加暂存区后的状态
 
-### 与本地仓库对比文件差异
+### 对比文件差异
 
+    # 工作区与最近本地仓库对比
+    # git diff HEAD -- <filename>
     git diff <filename>
+
+    # 对比最近两个本地仓库
+    git diff HEAD HEAD^ -- <filename>
 
 ### 查看版本记录（包括被删除的）
 
@@ -52,15 +63,14 @@
 
 ### 版本回退与撤销
 
-    git reset --hard HEAD^
     # 回退1个版本
+    git reset --hard HEAD^
 
-    git reset --hard HEAD^^
     # 回退2个版本
+    git reset --hard HEAD^^
 
-    git reset --hard HEAD~100
     # 回退100个版本
+    git reset --hard HEAD~100
 
+    # 回退到指定版本，参数由`git reflog`获取
     git reset --hard <7bitcode>
-    # 参数由`git reflog`获取
-    # 撤销回退
