@@ -13,7 +13,7 @@ git config --global user.email "zhmhbest@gmail.com"
 ## 本地使用
 
 ### 创建本地仓库
-    
+
 ```bash
 mkdir <repositorie>
 cd <repositorie>
@@ -61,7 +61,7 @@ git status
 ```bash
 # 放弃 暂存区修改
 # git reset HEAD <filename>
-git restore --staged <filename> 
+git restore --staged <filename>
 
 # 放弃 工作区修改
 git checkout -- <filename>
@@ -150,14 +150,14 @@ git checkout -b <branchname>
 
 ### 合并分支
 
->1. 两个分支对同一个文件做了修改
->   - 合并后，需要手动修改该文件并做一次提交。
->2. 两个分支分别新增了各自的文件
->   - 合并后，Git会自动再做一次提交。
+| 冲突情况 | 解决方案 |
+| - | - |
+| 两个分支对同一个文件做了修改 | 合并后，需要手动修改该文件再做一次提交 |
+| 两个分支分别新增了各自的文件 | 合并后，Git会自动再做一次提交 |
 
 ```bash
 # 快速合并（Fast-forward）指定分支到当前分支
-git merge <branchname>
+git merge <branchname> -m <message>
 
 # 禁用快速合并（合并后重新做一次新的提交）
 git merge --no-ff <branchname> -m <message>
@@ -166,10 +166,81 @@ git merge --no-ff <branchname> -m <message>
 git branch --merged
 git branch --no-merged
 ```
- 
+
 ## 云端联动
 
 - [Github](https://github.com)
 - [Gitee](https://gitee.com/)
 
+### 为Github添加密钥
 
+```bash
+ssh-keygen -t rsa -C "zhmhbest@gmail.com"
+
+# Generating public/private rsa key pair.
+# Enter file in which to save the key (%Userprofile%/.ssh/id_rsa):
+```
+
+>[Settings](https://github.com/settings) > [SSH and GPG keys](https://github.com/settings/keys) > [New SSH key](https://github.com/settings/ssh/new)
+
+![](./images/ssh.png)
+
+### 从云端克隆一个仓库
+
+```bash
+git clone https://github.com/<用户名>/<远程仓库名>.git
+```
+
+### 跟踪
+
+#### 本地仓库跟踪远程仓库
+
+```bash
+# cd <本地仓库目录>
+git remote add origin https://github.com/<用户名>/<远程仓库名>.git
+git push -u origin master
+```
+
+#### 本地分支跟踪云端分支
+
+```bash
+# git push origin master
+git branch --set-upstream-to=origin/<远程分支名> <本地分支名>
+```
+
+### 云端互传
+
+```bash
+# 当前分支推送到远程
+# git push origin master
+git push origin <远程分支名>
+
+# 当配置远程跟踪后可以直接使用如下命令
+git push
+
+# 拉取云端分支到本地并自动合并
+git pull origin <远程分支名>
+```
+
+#### 获取最新远程分支到本地
+
+```bash
+git fetch origin master:tmp
+git diff tmp
+git merge tmp
+git branch –d tmp
+```
+
+### 远程分支管理
+
+```bash
+# 查看云端所有分支
+git branch -r
+
+# 查看本地和远程所有分支
+git branch -a
+
+# 删除远程分支
+git branch –d -r <branchname>
+git push origin:<branchname>
+```
