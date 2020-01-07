@@ -1,6 +1,7 @@
 # HelloGit
 
 - [Download Git](https://git-scm.com/downloads/)
+- [Download SourceTree](https://www.sourcetreeapp.com/)
 
 ## 配置用户名
 
