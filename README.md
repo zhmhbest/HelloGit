@@ -286,7 +286,7 @@ git push origin:<branchname>
 
 ## 在集成开发环境中使用版本控制
 
->确定`git.exe`在环境变量中。
+>确定在环境变量中可以找到`git.exe`。
 
 ### [IDEA](https://www.jetbrains.com/idea/download/other.html)
 
