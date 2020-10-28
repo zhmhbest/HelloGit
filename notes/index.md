@@ -1,16 +1,18 @@
 <link rel="stylesheet" href="https://zhmhbest.gitee.io/hellomathematics/style/index.css">
 <script src="https://zhmhbest.gitee.io/hellomathematics/style/index.js"></script>
 
-# [HelloGit](https://zhmhbest.github.io/HelloGit/)
+# [HelloGit](https://github.com/zhmhbest/HelloGit)
 
 [TOC]
 
-## 相关文件
+## Ready
+
+### Download
 
 - [Download Git](https://git-scm.com/downloads/)
 - [Download SourceTree](https://www.sourcetreeapp.com/)
 
-## 配置用户名
+### User
 
 <!-- 
 zhmhbest
@@ -20,42 +22,63 @@ zhmhbest@gmail.com
 ```bash
 git config --global user.name "{name}"
 git config --global user.email "{email}"
-# vim ~/.gitconfig
+# more ~/.gitconfig
 # notepad %Userprofile%\.gitconfig
 ```
 
-```txt
-[user]
-    name = zhmhbest
-    email = zhmhbest@gmail.com
-```
+## Local
 
-## 本地使用
+### Init
 
-### 创建本地仓库
-
-```bash
-mkdir <repositorie>
-cd <repositorie>
+```batch
+REM Batch
 type nul>.gitignore
 git init
 ```
 
-### 提交文件到仓库
+```bash
+# Bash
+touch .gitignore
+git init
+```
+
+### Status
 
 ```bash
-# 添加文件到暂存区
-git add <filename>
-git add ...
+# 绿色：暂存区的修改记录（增、删、改）
+# 红色：已修改但未添加或未添加文件
+git status
+```
 
-# 提交删除
+```txt
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   ?
+        deleted:    ?
+        modified:   ?
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ?
+```
+
+### Stage
+
+```bash
+# 添加文件到Stage
+git add <filename>
+
+# 提交删除到Stage
 git rm <filename>
+
+# 放弃在Stage的修改
+git restore --staged <filename>
 
 # 提交修改到本地仓库（创建版本记录）
 git commit -m <message>
 ```
 
-### 查看提交记录
+### Log
 
 ```bash
 # 从最近到最远的显示提交记录（包括作者和日期）
@@ -66,28 +89,12 @@ git log --pretty=oneline
 
 # 指明版本走向（方便查看分支融合情况）
 git log --graph --pretty=oneline
+
+# 查看版本记录（包括被删除的）
+git reflog
 ```
 
-### 查看工作区状态
-
-```bash
-# 红色：已修改或未添加文件
-# 绿色：已添加到暂存区的文件
-git status
-```
-
-### 放弃文件的修改
-
-```bash
-# 放弃 暂存区修改
-# git reset HEAD <filename>
-git restore --staged <filename>
-
-# 放弃 工作区修改
-git checkout -- <filename>
-```
-
-### 对比文件差异
+### Diff
 
 ```bash
 # 工作区与最近本地仓库对比
@@ -98,13 +105,18 @@ git diff <filename>
 git diff HEAD HEAD^ -- <filename>
 ```
 
-### 查看版本记录（包括被删除的）
+### Restore
 
 ```bash
-git reflog
-```
+# 放弃 工作区修改
+git restore <filename>
 
-### 版本回退与撤销
+# 放弃 工作区修改
+git checkout -- <filename>
+
+# 放弃 工作区修改
+git reset HEAD <filename>
+```
 
 ```bash
 # 回退1个版本
@@ -120,7 +132,7 @@ git reset --hard HEAD~100
 git reset --hard <7bitcode>
 ```
 
-### 工作现场
+### Stash
 
 ```bash
 # 保存工作现场
@@ -309,3 +321,11 @@ git push origin:<branchname>
 
 - ![](images/vscode1.png)
 - ![](images/vscode2.png)
+
+## git-svn
+
+### 从SVN服务器克隆一个项目
+
+```bash
+git svn clone <SVN仓库路径>
+```
