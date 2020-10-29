@@ -1,30 +1,13 @@
-## 云端联动
 
-- [Github](https://github.com)
-- [Gitee](https://gitee.com/)
-
-### 为Github添加密钥
-
-#### 新建钥匙
-
-```bash
-ssh-keygen -t rsa -C "{email}"
-
-# Generating public/private rsa key pair.
-# Enter file in which to save the key (%Userprofile%/.ssh/id_rsa):
-# ...
-notepad %Userprofile%/.ssh/id_rsa.pub
-```
-
-#### 将公钥保存到Github
+#### 配置Github密钥
 
 >[Settings](https://github.com/settings) > [SSH and GPG keys](https://github.com/settings/keys) > [New SSH key](https://github.com/settings/ssh/new)
 
-![](./images/ssh.png)
+![github_ssh](./images/github_ssh.png)
 
-#### 配置无效问题
+##### 密钥无效问题
 
-使用https时，无法应用ssh密钥。
+使用https时，无法应用密钥。
 
 ```bash
 # 查看问题是否存在
@@ -47,53 +30,67 @@ git push -u origin master
 # Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 ```
 
-### 从云端克隆一个仓库
+#### 从云端克隆一个仓库
 
 ```bash
+# https
 git clone https://github.com/<用户名>/<远程仓库名>.git
+
+# ssh
+git clone git@github.com:<用户名>/<远程仓库名>.git
 ```
 
-### 跟踪
-
-#### 本地仓库跟踪远程仓库
+#### 关联云端
 
 ```bash
-# cd <本地仓库目录>
+# 本地仓库关联远程仓库
 git remote add origin https://github.com/<用户名>/<远程仓库名>.git
-git push -u origin master
-```
 
-#### 本地分支跟踪云端分支
-
-```bash
-# git push origin master
+# 本地分支关联云端分支
 git branch --set-upstream-to=origin/<远程分支名> <本地分支名>
 ```
 
-### 云端互传
+#### 分支同步
+
+`git pull = git fetch + git merge`
 
 ```bash
-# 当前分支推送到远程
-# git push origin master
-git push origin <远程分支名>
+# 拉取云端分支到本地并创建新的本地分支
+git fetch origin <远程分支名>:<本地分支名>
 
-# 当配置远程跟踪后可以直接使用如下命令
+# 拉取云端分支到当前分支，并自动合并
+git pull origin <远程分支名>
+
+# 当配置与远程分支关联后，可直接使用如下命令
 git push
 
-# 拉取云端分支到本地并自动合并
-git pull origin <远程分支名>
+# 指定分支推送到远程分支（远程分支不存在会自动创建）
+git push origin <本地分支名>:<远程分支名>
+
+# 当前分支推送到远程分支（远程分支不存在会自动创建）
+git push origin <远程分支名>
+
+# 当配置与远程分支关联后，可直接使用如下命令
+git push
 ```
 
-### 获取最新远程分支到本地
+#### 获取最新远程分支到本地
 
 ```bash
+# Step1.获取远程master分支到本地创建为tmp
 git fetch origin master:tmp
+
+# Step2.查看当前分支与刚获取的远程分支差异
 git diff tmp
+
+# Step3.将最新远程分支合并入当前分支
 git merge tmp
+
+# Step4.删除创建的临时分支
 git branch –d tmp
 ```
 
-### 远程分支管理
+#### 远程分支管理
 
 ```bash
 # 查看云端所有分支
@@ -102,8 +99,8 @@ git branch -r
 # 查看本地和远程所有分支
 git branch -a
 
-# 删除远程分支
-git branch –d -r <branchname>
-git push origin:<branchname>
+# 删除远程分支（以下均可）
+git branch –d -r <远程分支名>
+git push origin :<远程分支名>
+git push origin --delete <远程分支名>
 ```
-

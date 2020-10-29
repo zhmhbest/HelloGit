@@ -1,6 +1,4 @@
-## Local
-
-### Init
+### 创建本地仓库
 
 ```batch
 REM Batch
@@ -14,7 +12,10 @@ touch .gitignore
 git init
 ```
 
-### Status
+<!-- 
+
+
+### 仓库状态
 
 ```bash
 # 绿色：暂存区的修改记录（增、删、改）
@@ -34,7 +35,7 @@ Untracked files:
         ?
 ```
 
-### Stage
+### 暂存区
 
 ```bash
 # 添加文件到Stage
@@ -169,4 +170,4 @@ git merge --no-ff <branchname> -m <message>
 # 查看已合并、未合并的分支
 git branch --merged
 git branch --no-merged
-```
+``` -->
