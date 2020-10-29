@@ -12,46 +12,68 @@ touch .gitignore
 git init
 ```
 
-<!-- 
+### 暂存区
 
+#### 添加修改记录到到暂存区
+
+`<filename>`指存在于工作区或本地仓库的文件名称，其不一定存在于文件系统中。
+
+```bash
+git add <filename>
+```
+
+#### 删除文件并添加修改记录到暂存区
+
+```bash
+# 方式1
+git rm <filename>
+
+# 方式2
+rm ./<filename>
+git add <filename>
+
+# 移除暂存区删除记录并恢复文件
+git restore --staged <filename>
+git restore <filename>
+```
+
+#### 移除暂存区的记录
+
+```bash
+# 对于首次追踪的文件（其实是取消文件追踪）
+git rm --cached <filename>
+
+# 对于已追踪且修改了的文件
+git restore --staged <filename>
+```
+
+#### 提交暂存区记录到本地仓库
+
+```bash
+git commit -m <message>
+```
 
 ### 仓库状态
 
 ```bash
-# 绿色：暂存区的修改记录（增、删、改）
-# 红色：已修改但未添加或未添加文件
+# 绿色：暂存区记录
+# 红色：未追踪的文件
 git status
 ```
 
 ```txt
 Changes to be committed:
-  (use "git restore --staged <file>..." to unstage)
         new file:   ?
         deleted:    ?
         modified:   ?
 
 Untracked files:
-  (use "git add <file>..." to include in what will be committed)
         ?
 ```
 
-### 暂存区
+### 版本管理
 
-```bash
-# 添加文件到Stage
-git add <filename>
-
-# 提交删除到Stage
-git rm <filename>
-
-# 放弃在Stage的修改
-git restore --staged <filename>
-
-# 提交修改到本地仓库（创建版本记录）
-git commit -m <message>
-```
-
-### Log
+#### 版本记录
 
 ```bash
 # 从最近到最远的显示提交记录（包括作者和日期）
@@ -61,35 +83,26 @@ git log
 git log --pretty=oneline
 
 # 指明版本走向（方便查看分支融合情况）
-git log --graph --pretty=oneline
+git log --graph
 
 # 查看版本记录（包括被删除的）
 git reflog
 ```
 
-### Diff
+#### 放弃工作区修改
 
 ```bash
-# 工作区与最近本地仓库对比
-# git diff HEAD -- <filename>
-git diff <filename>
-
-# 对比最近两个本地仓库
-git diff HEAD HEAD^ -- <filename>
-```
-
-### Restore
-
-```bash
-# 放弃 工作区修改
+# 方式1
 git restore <filename>
 
-# 放弃 工作区修改
+# 方式2
 git checkout -- <filename>
 
-# 放弃 工作区修改
+# 方式3
 git reset HEAD <filename>
 ```
+
+#### 版本恢复
 
 ```bash
 # 回退1个版本
@@ -98,14 +111,14 @@ git reset --hard HEAD^
 # 回退2个版本
 git reset --hard HEAD^^
 
-# 回退100个版本
-git reset --hard HEAD~100
+# 回退10个版本
+git reset --hard HEAD~10
 
 # 回退到指定版本，参数由`git reflog`获取
-git reset --hard <7bitcode>
+git reset --hard <7位地址>
 ```
 
-### Stash
+### 工作现场
 
 ```bash
 # 保存工作现场
@@ -118,9 +131,20 @@ git stash list
 git stash pop
 ```
 
-## 分支管理
+### 文件差异
 
-### 查看分支
+```bash
+# 工作区与最近本地仓库对比
+# git diff HEAD -- <filename>
+git diff <filename>
+
+# 对比最近两个本地仓库
+git diff HEAD HEAD^ -- <filename>
+```
+
+### 分支管理
+
+#### 查看分支
 
 ```bash
 # 查看本地所有分支
@@ -130,44 +154,43 @@ git branch
 git branch -v
 ```
 
-### 分支管理
+#### 操作分支
 
 ```bash
 # 拷贝当前分支，创建新分支
-git branch <branchname>
+git branch <新分支名称>
 
 # 重命名分支
-git branch –m <oldname> <newname>
+git branch –m <旧分支名称> <新分支名称>
 
 # 删除分支
-git branch –d <branchname>
+git branch –d <分支名称>
 
 # 强制删除分支
-git branch –D <branchname>
+git branch –D <分支名称>
 
 # 切换分支
-# git checkout master
-git checkout <branchname>
+git checkout <已存在的分支名称>
 
 # 拷贝当前分支，创建新分支，并切换到
-git checkout -b <branchname>
+git checkout -b <新分支名称>
 ```
 
-### 合并分支
+#### 合并分支
 
 | 冲突情况 | 解决方案 |
 | - | - |
 | 两个分支对同一个文件做了修改 | 合并后，需要手动修改该文件再做一次提交 |
-| 两个分支分别新增了各自的文件 | 合并后，Git会自动再做一次提交 |
+| 两个分支分别新增或修改了各自的文件 | 合并后，Git会自动再做一次提交 |
 
 ```bash
-# 快速合并（Fast-forward）指定分支到当前分支
-git merge <branchname> -m <message>
+# 快速合并（Fast-forward）指定分支到合并到当前分支
+git merge <分支名称> -m <message>
 
 # 禁用快速合并（合并后重新做一次新的提交）
-git merge --no-ff <branchname> -m <message>
+git merge --no-ff <分支名称> -m <message>
 
 # 查看已合并、未合并的分支
 git branch --merged
 git branch --no-merged
-``` -->
+```
