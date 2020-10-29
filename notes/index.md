@@ -14,16 +14,19 @@
 
 ### 环境
 
-- [Download Cygwin](https://cygwin.com/install.html)
+安装[Cygwin](https://cygwin.com/install.html)并配置环境变量`CYGWIN_HOME`。
 
-配置环境变量`CYGWIN_HOME`。
+#### 添加可执行文件
+
+以管理员身份执行以下命令。
 
 ```batch
 REM Batch
 ECHO @SET PATH=^%CYGWIN_HOME^%\bin;^%CYGWIN_HOME^%\usr\local\bin;^%PATH^%>%SystemRoot%\bash.cmd
-ECHO @^%CYGWIN_HOME^%\bin\bash.exe ^%*>>%SystemRoot%\bash.cmd
 ECHO @^"^%CYGWIN_HOME^%\bin\bash.exe^" ^%*>>%SystemRoot%\bash.cmd
 ```
+
+#### 添加包管理器
 
 ```bash
 # Bash
@@ -33,6 +36,8 @@ unzip master.zip; mv './apt-cyg-master/apt-cyg' '/bin/apt-get'
 popd; rm -rf ${dumpDir}
 apt-get list
 ```
+
+#### 安装Git
 
 ```bash
 # Bash
