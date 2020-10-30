@@ -44,6 +44,17 @@ apt-get list
 apt-get install git git-svn
 ```
 
+#### 修复Windows下VSCode版本管理不可用
+
+下载[64-bit Git for Windows Portable](https://git-scm.com/download/win)并运行以下命令
+
+```batch
+@FOR /F "usebackq" %f in (`DIR /A:-D /B ".\PortableGit-*.7z.exe"`) DO (SET PACKAGE=%CD%\%f)
+"%ProgramFiles%\7-Zip\7z.exe" x -o"%CYGWIN_HOME%" "%PACKAGE%" cmd mingw64
+IF NOT EXIST "%ProgramFiles%\Git" MKDIR "%ProgramFiles%\Git"
+IF NOT EXIST "%ProgramFiles%\Git\cmd" MKLINK /J "%ProgramFiles%\Git\cmd" "%CYGWIN_HOME%\cmd"
+```
+
 ### 个人信息
 
 <!-- 
