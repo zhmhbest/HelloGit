@@ -46,7 +46,7 @@ apt-get install git git-svn
 
 #### 修复Windows下VSCode版本管理不可用
 
-下载[64-bit Git for Windows Portable](https://git-scm.com/download/win)并运行以下命令
+下载[Git for Windows Portable](https://git-scm.com/download/win)并运行以下命令
 
 ```batch
 @FOR /F "usebackq" %f in (`DIR /A:-D /B ".\PortableGit-*.7z.exe"`) DO (SET PACKAGE=%CD%\%f)
