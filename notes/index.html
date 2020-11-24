@@ -407,7 +407,10 @@ dumpDir<span class="token operator">=</span>/tmp/dump<span class="token variable
 &quot;%ProgramFiles%\7-Zip\7z.exe&quot; x -o&quot;%CYGWIN_HOME%&quot; &quot;%PACKAGE%&quot; cmd mingw64
 <span class="token command"><span class="token keyword">IF</span> <span class="token keyword">NOT</span> <span class="token keyword">EXIST</span> <span class="token string">&quot;%ProgramFiles%\Git&quot;</span></span> <span class="token command"><span class="token keyword">MKDIR</span> <span class="token string">&quot;%ProgramFiles%\Git&quot;</span></span>
 <span class="token command"><span class="token keyword">IF</span> <span class="token keyword">NOT</span> <span class="token keyword">EXIST</span> <span class="token string">&quot;%ProgramFiles%\Git\cmd&quot;</span></span> <span class="token command"><span class="token keyword">MKLINK</span> <span class="token parameter attr-name">/J</span> <span class="token string">&quot;%ProgramFiles%\Git\cmd&quot;</span> <span class="token string">&quot;%CYGWIN_HOME%\cmd&quot;</span></span>
-</pre><h4 class="mume-header" id="%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF">&#x4E2A;&#x4EBA;&#x4FE1;&#x606F;</h4>
+</pre><ul>
+<li>&#x6DFB;&#x52A0;<code>%ProgramFiles%\Git\cmd</code>&#x5230;&#x73AF;&#x5883;&#x53D8;&#x91CF;<code>PATH</code></li>
+</ul>
+<h4 class="mume-header" id="%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF">&#x4E2A;&#x4EBA;&#x4FE1;&#x606F;</h4>
 
 <pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token function">git</span> config --global user.name <span class="token string">&quot;YourName&quot;</span>
 <span class="token function">git</span> config --global user.email <span class="token string">&quot;YourName@gmail.com&quot;</span>

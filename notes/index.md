@@ -82,6 +82,8 @@ IF NOT EXIST "%ProgramFiles%\Git" MKDIR "%ProgramFiles%\Git"
 IF NOT EXIST "%ProgramFiles%\Git\cmd" MKLINK /J "%ProgramFiles%\Git\cmd" "%CYGWIN_HOME%\cmd"
 ```
 
+- 添加`%ProgramFiles%\Git\cmd`到环境变量`PATH`
+
 #### 个人信息
 
 <!-- 
