@@ -12,30 +12,56 @@
 	- [Download SourceTree](https://www.sourcetreeapp.com/)
 -->
 
-### 环境
+### 配置Cygwin
 
-安装[Cygwin](https://cygwin.com/install.html)并配置环境变量`CYGWIN_HOME`。
+下载[Cygwin](https://cygwin.com/setup-x86_64.exe)至如下目录
 
-#### 添加可执行文件
+```txt
+CYGWIN_HOME:.
+├─setup
+│      setup-x86_64.exe
+│
+└─...
+```
 
-以管理员身份执行以下命令。
+- 运行`setup-x86_64.exe`
+- Install from Internet
+- Root Directory = `%CYGWIN_HOME%`
+- Local Package Directory = `%CYGWIN_HOME%\setup`
+- Use HTTP/FTP Proxy
+  - Proxy Host = `.`
+  - Could not download mirror sites list
+  - 上一步
+- Direct Connection
+- User URL = `https://mirrors.tuna.tsinghua.edu.cn/cygwin/`
+- View = `Category`
+  - 启用`wget`
+  - 启用`unzip`
+- 添加环境变量`CYGWIN_HOME`
+- 添加`%CYGWIN_HOME%\bin`到环境变量`PATH`
+
+#### 右键启动
 
 ```batch
-REM Batch
-ECHO @SET PATH=^%CYGWIN_HOME^%\bin;^%CYGWIN_HOME^%\usr\local\bin;^%PATH^%>%SystemRoot%\bash.cmd
-ECHO @^"^%CYGWIN_HOME^%\bin\bash.exe^" ^%*>>%SystemRoot%\bash.cmd
+REM 以管理员身份运行一个“cmd.exe”窗口
+SET REG_ROOT=HKLM\SOFTWARE\Classes\Directory\background\shell
+reg add "%REG_ROOT%\bashPrompt" /f /ve /t REG_SZ /d "在此处打开 Bash 窗口(&B)"
+reg add "%REG_ROOT%\bashPrompt" /f /v "Icon" /t REG_SZ /d "%CYGWIN_HOME%\Cygwin-Terminal.ico"
+reg add "%REG_ROOT%\bashPrompt\command" /f /ve /t REG_SZ /d "\"%CYGWIN_HOME%\bin\mintty.exe\" -c \"%CYGWIN_HOME%\%UserName%\.bash_profile\""
 ```
 
 #### 添加包管理器
 
 ```bash
-# Bash
+# 右键“在此处打开 Bash 窗口(B)”
 dumpDir=/tmp/dump$RANDOM; mkdir ${dumpDir}; pushd ${dumpDir}
 wget https://github.com/transcode-open/apt-cyg/archive/master.zip
 unzip master.zip; mv './apt-cyg-master/apt-cyg' '/bin/apt-get'
 popd; rm -rf ${dumpDir}
 apt-get list
 ```
+
+### 环境
 
 #### 安装Git
 
@@ -46,16 +72,17 @@ apt-get install git git-svn
 
 #### 修复Windows下VSCode版本管理不可用
 
-下载[Git for Windows Portable](https://git-scm.com/download/win)并运行以下命令
+下载[Git for Windows Portable](https://git-scm.com/download/win)，在当前目录运行命令行并执行以下命令
 
 ```batch
+REM Batch
 @FOR /F "usebackq" %f in (`DIR /A:-D /B ".\PortableGit-*.7z.exe"`) DO (SET PACKAGE=%CD%\%f)
 "%ProgramFiles%\7-Zip\7z.exe" x -o"%CYGWIN_HOME%" "%PACKAGE%" cmd mingw64
 IF NOT EXIST "%ProgramFiles%\Git" MKDIR "%ProgramFiles%\Git"
 IF NOT EXIST "%ProgramFiles%\Git\cmd" MKLINK /J "%ProgramFiles%\Git\cmd" "%CYGWIN_HOME%\cmd"
 ```
 
-### 个人信息
+#### 个人信息
 
 <!-- 
 zhmhbest
