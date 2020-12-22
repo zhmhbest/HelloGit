@@ -273,12 +273,10 @@ pre[data-line] .line-highlight[data-end]:after {
 <li><a href="#%E9%85%8D%E7%BD%AEcygwin">&#x914D;&#x7F6E;Cygwin</a>
 <ul>
 <li><a href="#%E5%8F%B3%E9%94%AE%E5%90%AF%E5%8A%A8">&#x53F3;&#x952E;&#x542F;&#x52A8;</a></li>
-<li><a href="#%E6%B7%BB%E5%8A%A0%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8">&#x6DFB;&#x52A0;&#x5305;&#x7BA1;&#x7406;&#x5668;</a></li>
 </ul>
 </li>
 <li><a href="#%E7%8E%AF%E5%A2%83">&#x73AF;&#x5883;</a>
 <ul>
-<li><a href="#%E5%AE%89%E8%A3%85git">&#x5B89;&#x88C5;Git</a></li>
 <li><a href="#%E4%BF%AE%E5%A4%8Dwindows%E4%B8%8Bvscode%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E4%B8%8D%E5%8F%AF%E7%94%A8">&#x4FEE;&#x590D;Windows&#x4E0B;VSCode&#x7248;&#x672C;&#x7BA1;&#x7406;&#x4E0D;&#x53EF;&#x7528;</a></li>
 <li><a href="#%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF">&#x4E2A;&#x4EBA;&#x4FE1;&#x606F;</a></li>
 </ul>
@@ -360,19 +358,15 @@ pre[data-line] .line-highlight[data-end]:after {
 <li>Install from Internet</li>
 <li>Root Directory = <code>%CYGWIN_HOME%</code></li>
 <li>Local Package Directory = <code>%CYGWIN_HOME%\setup</code></li>
-<li>Use HTTP/FTP Proxy
-<ul>
-<li>Proxy Host = <code>.</code></li>
-<li>Could not download mirror sites list</li>
-<li>&#x4E0A;&#x4E00;&#x6B65;</li>
-</ul>
-</li>
 <li>Direct Connection</li>
 <li>User URL = <code>https://mirrors.tuna.tsinghua.edu.cn/cygwin/</code></li>
 <li>View = <code>Category</code>
 <ul>
 <li>&#x542F;&#x7528;<code>wget</code></li>
 <li>&#x542F;&#x7528;<code>unzip</code></li>
+<li>&#x542F;&#x7528;<code>vim</code></li>
+<li>&#x542F;&#x7528;<code>git</code></li>
+<li>&#x542F;&#x7528;<code>git-svn</code></li>
 </ul>
 </li>
 <li>&#x6DFB;&#x52A0;&#x73AF;&#x5883;&#x53D8;&#x91CF;<code>CYGWIN_HOME</code></li>
@@ -385,21 +379,9 @@ pre[data-line] .line-highlight[data-end]:after {
 <span class="token command"><span class="token keyword">reg</span> add <span class="token string">&quot;%REG_ROOT%\bashPrompt&quot;</span> <span class="token parameter attr-name">/f</span> <span class="token parameter attr-name">/ve</span> <span class="token parameter attr-name">/t</span> REG_SZ <span class="token parameter attr-name">/d</span> &quot;&#x5728;&#x6B64;&#x5904;&#x6253;&#x5F00; Bash &#x7A97;&#x53E3;(</span><span class="token operator">&amp;</span><span class="token command"><span class="token keyword">B</span></span><span class="token punctuation">)</span>&quot;
 <span class="token command"><span class="token keyword">reg</span> add <span class="token string">&quot;%REG_ROOT%\bashPrompt&quot;</span> <span class="token parameter attr-name">/f</span> <span class="token parameter attr-name">/v</span> <span class="token string">&quot;Icon&quot;</span> <span class="token parameter attr-name">/t</span> REG_SZ <span class="token parameter attr-name">/d</span> <span class="token string">&quot;%CYGWIN_HOME%\Cygwin-Terminal.ico&quot;</span></span>
 <span class="token command"><span class="token keyword">reg</span> add <span class="token string">&quot;%REG_ROOT%\bashPrompt\command&quot;</span> <span class="token parameter attr-name">/f</span> <span class="token parameter attr-name">/ve</span> <span class="token parameter attr-name">/t</span> REG_SZ <span class="token parameter attr-name">/d</span> <span class="token string">&quot;\&quot;</span><span class="token variable">%CYGWIN_HOME%</span>\bin\mintty.exe\<span class="token string">&quot; -c \&quot;</span><span class="token variable">%CYGWIN_HOME%</span>\<span class="token variable">%UserName%</span>\.bash_profile\<span class="token string">&quot;&quot;</span></span>
-</pre><h4 class="mume-header" id="%E6%B7%BB%E5%8A%A0%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8">&#x6DFB;&#x52A0;&#x5305;&#x7BA1;&#x7406;&#x5668;</h4>
-
-<pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token comment"># &#x53F3;&#x952E;&#x201C;&#x5728;&#x6B64;&#x5904;&#x6253;&#x5F00; Bash &#x7A97;&#x53E3;(B)&#x201D;</span>
-dumpDir<span class="token operator">=</span>/tmp/dump<span class="token variable">$RANDOM</span><span class="token punctuation">;</span> <span class="token function">mkdir</span> <span class="token variable">${dumpDir}</span><span class="token punctuation">;</span> <span class="token function">pushd</span> <span class="token variable">${dumpDir}</span>
-<span class="token function">wget</span> https://github.com/transcode-open/apt-cyg/archive/master.zip
-<span class="token function">unzip</span> master.zip<span class="token punctuation">;</span> <span class="token function">mv</span> <span class="token string">&apos;./apt-cyg-master/apt-cyg&apos;</span> <span class="token string">&apos;/bin/apt-get&apos;</span>
-<span class="token function">popd</span><span class="token punctuation">;</span> <span class="token function">rm</span> -rf <span class="token variable">${dumpDir}</span>
-<span class="token function">apt-get</span> list
 </pre><h3 class="mume-header" id="%E7%8E%AF%E5%A2%83">&#x73AF;&#x5883;</h3>
 
-<h4 class="mume-header" id="%E5%AE%89%E8%A3%85git">&#x5B89;&#x88C5;Git</h4>
-
-<pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token comment"># Bash</span>
-<span class="token function">apt-get</span> <span class="token function">install</span> <span class="token function">git</span> git-svn
-</pre><h4 class="mume-header" id="%E4%BF%AE%E5%A4%8Dwindows%E4%B8%8Bvscode%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E4%B8%8D%E5%8F%AF%E7%94%A8">&#x4FEE;&#x590D;Windows&#x4E0B;VSCode&#x7248;&#x672C;&#x7BA1;&#x7406;&#x4E0D;&#x53EF;&#x7528;</h4>
+<h4 class="mume-header" id="%E4%BF%AE%E5%A4%8Dwindows%E4%B8%8Bvscode%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E4%B8%8D%E5%8F%AF%E7%94%A8">&#x4FEE;&#x590D;Windows&#x4E0B;VSCode&#x7248;&#x672C;&#x7BA1;&#x7406;&#x4E0D;&#x53EF;&#x7528;</h4>
 
 <p>&#x4E0B;&#x8F7D;<a href="https://git-scm.com/download/win">Git for Windows Portable</a>&#xFF0C;&#x5728;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x8FD0;&#x884C;&#x547D;&#x4EE4;&#x884C;&#x5E76;&#x6267;&#x884C;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;</p>
 <pre data-role="codeBlock" data-info="batch" class="language-batch"><span class="token comment">REM Batch</span>

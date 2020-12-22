@@ -28,15 +28,14 @@ CYGWIN_HOME:.
 - Install from Internet
 - Root Directory = `%CYGWIN_HOME%`
 - Local Package Directory = `%CYGWIN_HOME%\setup`
-- Use HTTP/FTP Proxy
-  - Proxy Host = `.`
-  - Could not download mirror sites list
-  - 上一步
 - Direct Connection
 - User URL = `https://mirrors.tuna.tsinghua.edu.cn/cygwin/`
 - View = `Category`
   - 启用`wget`
   - 启用`unzip`
+  - 启用`vim`
+  - 启用`git`
+  - 启用`git-svn`
 - 添加环境变量`CYGWIN_HOME`
 - 添加`%CYGWIN_HOME%\bin`到环境变量`PATH`
 
@@ -50,6 +49,7 @@ reg add "%REG_ROOT%\bashPrompt" /f /v "Icon" /t REG_SZ /d "%CYGWIN_HOME%\Cygwin-
 reg add "%REG_ROOT%\bashPrompt\command" /f /ve /t REG_SZ /d "\"%CYGWIN_HOME%\bin\mintty.exe\" -c \"%CYGWIN_HOME%\%UserName%\.bash_profile\""
 ```
 
+<!--
 #### 添加包管理器
 
 ```bash
@@ -60,15 +60,9 @@ unzip master.zip; mv './apt-cyg-master/apt-cyg' '/bin/apt-get'
 popd; rm -rf ${dumpDir}
 apt-get list
 ```
+-->
 
 ### 环境
-
-#### 安装Git
-
-```bash
-# Bash
-apt-get install git git-svn
-```
 
 #### 修复Windows下VSCode版本管理不可用
 
@@ -86,7 +80,7 @@ IF NOT EXIST "%ProgramFiles%\Git\cmd" MKLINK /J "%ProgramFiles%\Git\cmd" "%CYGWI
 
 #### 个人信息
 
-<!-- 
+<!--
 zhmhbest
 zhmhbest@gmail.com
 -->
