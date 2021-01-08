@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
       
       
       
@@ -309,6 +309,7 @@ pre[data-line] .line-highlight[data-end]:after {
 <li><a href="#%E6%9F%A5%E7%9C%8B%E5%88%86%E6%94%AF">&#x67E5;&#x770B;&#x5206;&#x652F;</a></li>
 <li><a href="#%E6%93%8D%E4%BD%9C%E5%88%86%E6%94%AF">&#x64CD;&#x4F5C;&#x5206;&#x652F;</a></li>
 <li><a href="#%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF">&#x5408;&#x5E76;&#x5206;&#x652F;</a></li>
+<li><a href="#%E5%8F%98%E5%9F%BA%E5%90%88%E5%B9%B6">&#x53D8;&#x57FA;&#x5408;&#x5E76;</a></li>
 </ul>
 </li>
 </ul>
@@ -326,8 +327,9 @@ pre[data-line] .line-highlight[data-end]:after {
 </li>
 <li><a href="#%E4%BB%8E%E4%BA%91%E7%AB%AF%E5%85%8B%E9%9A%86%E4%B8%80%E4%B8%AA%E4%BB%93%E5%BA%93">&#x4ECE;&#x4E91;&#x7AEF;&#x514B;&#x9686;&#x4E00;&#x4E2A;&#x4ED3;&#x5E93;</a></li>
 <li><a href="#%E5%85%B3%E8%81%94%E4%BA%91%E7%AB%AF">&#x5173;&#x8054;&#x4E91;&#x7AEF;</a></li>
-<li><a href="#%E5%88%86%E6%94%AF%E5%90%8C%E6%AD%A5">&#x5206;&#x652F;&#x540C;&#x6B65;</a></li>
-<li><a href="#%E8%8E%B7%E5%8F%96%E6%9C%80%E6%96%B0%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF%E5%88%B0%E6%9C%AC%E5%9C%B0">&#x83B7;&#x53D6;&#x6700;&#x65B0;&#x8FDC;&#x7A0B;&#x5206;&#x652F;&#x5230;&#x672C;&#x5730;</a></li>
+<li><a href="#%E5%88%86%E6%94%AF%E6%8E%A8%E9%80%81">&#x5206;&#x652F;&#x63A8;&#x9001;</a></li>
+<li><a href="#%E5%88%86%E6%94%AF%E6%8B%89%E5%8F%96">&#x5206;&#x652F;&#x62C9;&#x53D6;</a></li>
+<li><a href="#%E5%AE%89%E5%85%A8%E6%8B%89%E5%8F%96">&#x5B89;&#x5168;&#x62C9;&#x53D6;</a></li>
 <li><a href="#%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86">&#x8FDC;&#x7A0B;&#x5206;&#x652F;&#x7BA1;&#x7406;</a></li>
 </ul>
 </li>
@@ -376,9 +378,9 @@ pre[data-line] .line-highlight[data-end]:after {
 
 <pre data-role="codeBlock" data-info="batch" class="language-batch"><span class="token comment">REM &#x4EE5;&#x7BA1;&#x7406;&#x5458;&#x8EAB;&#x4EFD;&#x8FD0;&#x884C;&#x4E00;&#x4E2A;&#x201C;cmd.exe&#x201D;&#x7A97;&#x53E3;</span>
 <span class="token command"><span class="token keyword">SET</span> <span class="token variable">REG_ROOT</span><span class="token operator">=</span>HKLM\SOFTWARE\Classes\Directory\background\shell</span>
-<span class="token command"><span class="token keyword">reg</span> add <span class="token string">&quot;%REG_ROOT%\bashPrompt&quot;</span> <span class="token parameter attr-name">/f</span> <span class="token parameter attr-name">/ve</span> <span class="token parameter attr-name">/t</span> REG_SZ <span class="token parameter attr-name">/d</span> &quot;&#x5728;&#x6B64;&#x5904;&#x6253;&#x5F00; Bash &#x7A97;&#x53E3;(</span><span class="token operator">&amp;</span><span class="token command"><span class="token keyword">B</span></span><span class="token punctuation">)</span>&quot;
+<span class="token command"><span class="token keyword">reg</span> add <span class="token string">&quot;%REG_ROOT%\bashPrompt&quot;</span> <span class="token parameter attr-name">/f</span> <span class="token parameter attr-name">/ve</span> <span class="token parameter attr-name">/t</span> REG_SZ <span class="token parameter attr-name">/d</span> <span class="token string">&quot;&#x5728;&#x6B64;&#x5904;&#x6253;&#x5F00; Bash &#x7A97;&#x53E3;(&amp;B)&quot;</span></span>
 <span class="token command"><span class="token keyword">reg</span> add <span class="token string">&quot;%REG_ROOT%\bashPrompt&quot;</span> <span class="token parameter attr-name">/f</span> <span class="token parameter attr-name">/v</span> <span class="token string">&quot;Icon&quot;</span> <span class="token parameter attr-name">/t</span> REG_SZ <span class="token parameter attr-name">/d</span> <span class="token string">&quot;%CYGWIN_HOME%\Cygwin-Terminal.ico&quot;</span></span>
-<span class="token command"><span class="token keyword">reg</span> add <span class="token string">&quot;%REG_ROOT%\bashPrompt\command&quot;</span> <span class="token parameter attr-name">/f</span> <span class="token parameter attr-name">/ve</span> <span class="token parameter attr-name">/t</span> REG_SZ <span class="token parameter attr-name">/d</span> <span class="token string">&quot;\&quot;</span><span class="token variable">%CYGWIN_HOME%</span>\bin\mintty.exe\<span class="token string">&quot; -c \&quot;</span><span class="token variable">%CYGWIN_HOME%</span>\<span class="token variable">%UserName%</span>\.bash_profile\<span class="token string">&quot;&quot;</span></span>
+<span class="token command"><span class="token keyword">reg</span> add <span class="token string">&quot;%REG_ROOT%\bashPrompt\command&quot;</span> <span class="token parameter attr-name">/f</span> <span class="token parameter attr-name">/ve</span> <span class="token parameter attr-name">/t</span> REG_SZ <span class="token parameter attr-name">/d</span> <span class="token string">&quot;\&quot;%CYGWIN_HOME%\bin\mintty.exe\&quot; -c \&quot;%CYGWIN_HOME%\%UserName%\.bash_profile\&quot;&quot;</span></span>
 </pre><h3 class="mume-header" id="%E7%8E%AF%E5%A2%83">&#x73AF;&#x5883;</h3>
 
 <h4 class="mume-header" id="%E4%BF%AE%E5%A4%8Dwindows%E4%B8%8Bvscode%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E4%B8%8D%E5%8F%AF%E7%94%A8">&#x4FEE;&#x590D;Windows&#x4E0B;VSCode&#x7248;&#x672C;&#x7BA1;&#x7406;&#x4E0D;&#x53EF;&#x7528;</h4>
@@ -412,7 +414,7 @@ pre[data-line] .line-highlight[data-end]:after {
 <h4 class="mume-header" id="%E6%B7%BB%E5%8A%A0%E4%BF%AE%E6%94%B9%E8%AE%B0%E5%BD%95%E5%88%B0%E5%88%B0%E6%9A%82%E5%AD%98%E5%8C%BA">&#x6DFB;&#x52A0;&#x4FEE;&#x6539;&#x8BB0;&#x5F55;&#x5230;&#x5230;&#x6682;&#x5B58;&#x533A;</h4>
 
 <p><code>&lt;filename&gt;</code>&#x6307;&#x5B58;&#x5728;&#x4E8E;&#x5DE5;&#x4F5C;&#x533A;&#x6216;&#x672C;&#x5730;&#x4ED3;&#x5E93;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x79F0;&#xFF0C;&#x5176;&#x4E0D;&#x4E00;&#x5B9A;&#x5B58;&#x5728;&#x4E8E;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E2D;&#x3002;</p>
-<pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token function">git</span> add <span class="token operator">&lt;</span>filename<span class="token operator">&gt;</span>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token function">git</span> <span class="token function">add</span> <span class="token operator">&lt;</span>filename<span class="token operator">&gt;</span>
 </pre><h4 class="mume-header" id="%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E5%B9%B6%E6%B7%BB%E5%8A%A0%E4%BF%AE%E6%94%B9%E8%AE%B0%E5%BD%95%E5%88%B0%E6%9A%82%E5%AD%98%E5%8C%BA">&#x5220;&#x9664;&#x6587;&#x4EF6;&#x5E76;&#x6DFB;&#x52A0;&#x4FEE;&#x6539;&#x8BB0;&#x5F55;&#x5230;&#x6682;&#x5B58;&#x533A;</h4>
 
 <pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token comment"># &#x65B9;&#x5F0F;1</span>
@@ -420,7 +422,7 @@ pre[data-line] .line-highlight[data-end]:after {
 
 <span class="token comment"># &#x65B9;&#x5F0F;2</span>
 <span class="token function">rm</span> ./<span class="token operator">&lt;</span>filename<span class="token operator">&gt;</span>
-<span class="token function">git</span> add <span class="token operator">&lt;</span>filename<span class="token operator">&gt;</span>
+<span class="token function">git</span> <span class="token function">add</span> <span class="token operator">&lt;</span>filename<span class="token operator">&gt;</span>
 
 <span class="token comment"># &#x79FB;&#x9664;&#x6682;&#x5B58;&#x533A;&#x5220;&#x9664;&#x8BB0;&#x5F55;&#x5E76;&#x6062;&#x590D;&#x6587;&#x4EF6;</span>
 <span class="token function">git</span> restore --staged <span class="token operator">&lt;</span>filename<span class="token operator">&gt;</span>
@@ -484,7 +486,7 @@ Untracked files:
 <span class="token function">git</span> reset --hard HEAD~10
 
 <span class="token comment"># &#x56DE;&#x9000;&#x5230;&#x6307;&#x5B9A;&#x7248;&#x672C;&#xFF0C;&#x53C2;&#x6570;&#x7531;`git reflog`&#x83B7;&#x53D6;</span>
-<span class="token function">git</span> reset --hard <span class="token operator">&lt;</span>7&#x4F4D;&#x5730;&#x5740;<span class="token operator">&gt;</span>
+<span class="token function">git</span> reset --hard <span class="token operator">&lt;</span><span class="token number">7</span>&#x4F4D;&#x5730;&#x5740;<span class="token operator">&gt;</span>
 </pre><h3 class="mume-header" id="%E5%B7%A5%E4%BD%9C%E7%8E%B0%E5%9C%BA">&#x5DE5;&#x4F5C;&#x73B0;&#x573A;</h3>
 
 <pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token comment"># &#x4FDD;&#x5B58;&#x5DE5;&#x4F5C;&#x73B0;&#x573A;</span>
@@ -560,6 +562,50 @@ Untracked files:
 <span class="token comment"># &#x67E5;&#x770B;&#x5DF2;&#x5408;&#x5E76;&#x3001;&#x672A;&#x5408;&#x5E76;&#x7684;&#x5206;&#x652F;</span>
 <span class="token function">git</span> branch --merged
 <span class="token function">git</span> branch --no-merged
+</pre><h4 class="mume-header" id="%E5%8F%98%E5%9F%BA%E5%90%88%E5%B9%B6">&#x53D8;&#x57FA;&#x5408;&#x5E76;</h4>
+
+<p>&#x5C06;&#x5E76;&#x884C;&#x5F00;&#x53D1;&#x7684;&#x5206;&#x652F;&#x5408;&#x5E76;&#x5230;&#x539F;&#x5206;&#x652F;</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token comment"># &#x5C06;&#x5F53;&#x524D;&#x5206;&#x652F;&#x6539;&#x52A8;&#x5408;&#x5E76;&#x5230;&#x6307;&#x5B9A;&#x5206;&#x652F;</span>
+<span class="token function">git</span> rebase <span class="token operator">&lt;</span>&#x5206;&#x652F;&#x540D;&#x79F0;<span class="token operator">&gt;</span>
+
+<span class="token comment"># &#x5F53;&#x53D1;&#x751F;&#x51B2;&#x7A81;&#x65F6;&#xFF0C;&#x53EF;&#x5728;&#x4FEE;&#x6539;&#x51B2;&#x7A81;&#x540E;&#x7EE7;&#x7EED;&#x6216;&#x653E;&#x5F03;</span>
+<span class="token function">git</span> rebase --continue
+<span class="token function">git</span> rebase --abort
+</pre><p>&#x6D4B;&#x8BD5;demo</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token comment"># &#x539F;&#x59CB;&#x5206;&#x652F;</span>
+<span class="token function">mkdir</span> <span class="token builtin class-name">test</span>
+<span class="token function">pushd</span> <span class="token builtin class-name">test</span>
+<span class="token function">git</span> init
+<span class="token builtin class-name">echo</span> A<span class="token operator">&gt;</span>A.txt
+<span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+<span class="token function">git</span> commit -m A
+<span class="token function">git</span> log --pretty<span class="token operator">=</span>oneline
+
+<span class="token comment"># &#x62F7;&#x8D1D;&#x5206;&#x652F;</span>
+<span class="token function">git</span> branch mywork
+
+<span class="token comment"># &#x4FEE;&#x6539;master</span>
+<span class="token builtin class-name">echo</span> B<span class="token operator">&gt;&gt;</span>A.txt
+<span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+<span class="token function">git</span> commit -m B
+<span class="token function">git</span> log --pretty<span class="token operator">=</span>oneline
+
+<span class="token comment"># &#x4FEE;&#x6539;mywork</span>
+<span class="token function">git</span> checkout mywork
+<span class="token builtin class-name">echo</span> C<span class="token operator">&gt;</span>C.txt
+<span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+<span class="token function">git</span> commit -m C
+<span class="token function">git</span> log --pretty<span class="token operator">=</span>oneline
+
+<span class="token comment"># &#x53D8;&#x57FA;&#x5408;&#x5E76;</span>
+<span class="token function">git</span> rebase master
+<span class="token function">git</span> log --pretty<span class="token operator">=</span>oneline
+<span class="token function">more</span> A.txt
+<span class="token function">more</span> C.txt
+
+<span class="token comment"># &#x5220;&#x9664;&#x6D4B;&#x8BD5;&#x73AF;&#x5883;</span>
+<span class="token function">popd</span>
+<span class="token function">rm</span> -rf ./test
 </pre><h2 class="mume-header" id="%E4%BA%91%E7%AB%AF%E8%81%94%E5%8A%A8">&#x4E91;&#x7AEF;&#x8054;&#x52A8;</h2>
 
 <h3 class="mume-header" id="%E5%B8%B8%E7%94%A8%E4%BA%91%E5%B9%B3%E5%8F%B0">&#x5E38;&#x7528;&#x4E91;&#x5E73;&#x53F0;</h3>
@@ -594,7 +640,7 @@ ssh-keygen -t rsa -C <span class="token string">&quot;YourName@gmail.com&quot;</
 <span class="token comment"># origin  https://github.com/&lt;&#x7528;&#x6237;&#x540D;&gt;/&lt;&#x4ED3;&#x5E93;&#x540D;&gt; (push)</span>
 </pre><pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token comment"># &#x4FEE;&#x6539;&#x8FDE;&#x63A5;&#x65B9;&#x5F0F;</span>
 <span class="token function">git</span> remote <span class="token function">rm</span> origin
-<span class="token function">git</span> remote add origin git@github.com:<span class="token operator">&lt;</span>&#x7528;&#x6237;&#x540D;<span class="token operator">&gt;</span>/<span class="token operator">&lt;</span>&#x4ED3;&#x5E93;&#x540D;<span class="token operator">&gt;</span>.git
+<span class="token function">git</span> remote <span class="token function">add</span> origin git@github.com:<span class="token operator">&lt;</span>&#x7528;&#x6237;&#x540D;<span class="token operator">&gt;</span>/<span class="token operator">&lt;</span>&#x4ED3;&#x5E93;&#x540D;<span class="token operator">&gt;</span>.git
 <span class="token function">git</span> remote -v
 <span class="token function">git</span> push -u origin master
 
@@ -612,11 +658,30 @@ ssh-keygen -t rsa -C <span class="token string">&quot;YourName@gmail.com&quot;</
 </pre><h4 class="mume-header" id="%E5%85%B3%E8%81%94%E4%BA%91%E7%AB%AF">&#x5173;&#x8054;&#x4E91;&#x7AEF;</h4>
 
 <pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token comment"># &#x672C;&#x5730;&#x4ED3;&#x5E93;&#x5173;&#x8054;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;</span>
-<span class="token function">git</span> remote add origin https://github.com/<span class="token operator">&lt;</span>&#x7528;&#x6237;&#x540D;<span class="token operator">&gt;</span>/<span class="token operator">&lt;</span>&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x540D;<span class="token operator">&gt;</span>.git
+<span class="token function">git</span> remote <span class="token function">add</span> origin https://github.com/<span class="token operator">&lt;</span>&#x7528;&#x6237;&#x540D;<span class="token operator">&gt;</span>/<span class="token operator">&lt;</span>&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x540D;<span class="token operator">&gt;</span>.git
+
+<span class="token comment"># &#x67E5;&#x770B;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x5730;&#x5740;</span>
+<span class="token function">git</span> remote -v
+
+<span class="token comment"># &#x89E3;&#x9664;&#x4E0E;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x7684;&#x5173;&#x8054;</span>
+<span class="token function">git</span> remote <span class="token function">rm</span> origin
 
 <span class="token comment"># &#x672C;&#x5730;&#x5206;&#x652F;&#x5173;&#x8054;&#x4E91;&#x7AEF;&#x5206;&#x652F;</span>
 <span class="token function">git</span> branch --set-upstream-to<span class="token operator">=</span>origin/<span class="token operator">&lt;</span>&#x8FDC;&#x7A0B;&#x5206;&#x652F;&#x540D;<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>&#x672C;&#x5730;&#x5206;&#x652F;&#x540D;<span class="token operator">&gt;</span>
-</pre><h4 class="mume-header" id="%E5%88%86%E6%94%AF%E5%90%8C%E6%AD%A5">&#x5206;&#x652F;&#x540C;&#x6B65;</h4>
+</pre><h4 class="mume-header" id="%E5%88%86%E6%94%AF%E6%8E%A8%E9%80%81">&#x5206;&#x652F;&#x63A8;&#x9001;</h4>
+
+<pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token comment"># &#x6307;&#x5B9A;&#x5206;&#x652F;&#x63A8;&#x9001;&#x5230;&#x8FDC;&#x7A0B;&#x5206;&#x652F;&#xFF08;&#x8FDC;&#x7A0B;&#x5206;&#x652F;&#x4E0D;&#x5B58;&#x5728;&#x4F1A;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#xFF09;</span>
+<span class="token function">git</span> push origin <span class="token operator">&lt;</span>&#x672C;&#x5730;&#x5206;&#x652F;&#x540D;<span class="token operator">&gt;</span>:<span class="token operator">&lt;</span>&#x8FDC;&#x7A0B;&#x5206;&#x652F;&#x540D;<span class="token operator">&gt;</span>
+
+<span class="token comment"># &#x5F53;&#x524D;&#x5206;&#x652F;&#x63A8;&#x9001;&#x5230;&#x8FDC;&#x7A0B;&#x5206;&#x652F;&#xFF08;&#x8FDC;&#x7A0B;&#x5206;&#x652F;&#x4E0D;&#x5B58;&#x5728;&#x4F1A;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#xFF09;</span>
+<span class="token function">git</span> push origin <span class="token operator">&lt;</span>&#x8FDC;&#x7A0B;&#x5206;&#x652F;&#x540D;<span class="token operator">&gt;</span>
+
+<span class="token comment"># &#x8BBE;&#x5B9A;&#x9ED8;&#x8BA4;&#x8FDC;&#x7A0B;&#x4E3B;&#x673A;&#xFF0C;&#x5E76;&#x63A8;&#x9001;&#x5F53;&#x524D;&#x5206;&#x652F;&#x5230;master&#xFF08;&#x4EE5;&#x540E;&#x53EF;&#x7701;&#x7565;origin&#xFF09;</span>
+<span class="token function">git</span> push -u origin master
+
+<span class="token comment"># &#x5F53;&#x914D;&#x7F6E;&#x9ED8;&#x8BA4;&#x4E3B;&#x673A;&#x4E0E;&#x8FDC;&#x7A0B;&#x5206;&#x652F;&#x5173;&#x8054;&#x540E;&#xFF0C;&#x53EF;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x5982;&#x4E0B;&#x547D;&#x4EE4;</span>
+<span class="token function">git</span> push
+</pre><h4 class="mume-header" id="%E5%88%86%E6%94%AF%E6%8B%89%E5%8F%96">&#x5206;&#x652F;&#x62C9;&#x53D6;</h4>
 
 <p><code>git pull = git fetch + git merge</code></p>
 <pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token comment"># &#x62C9;&#x53D6;&#x4E91;&#x7AEF;&#x5206;&#x652F;&#x5230;&#x672C;&#x5730;&#x5E76;&#x521B;&#x5EFA;&#x65B0;&#x7684;&#x672C;&#x5730;&#x5206;&#x652F;</span>
@@ -624,19 +689,7 @@ ssh-keygen -t rsa -C <span class="token string">&quot;YourName@gmail.com&quot;</
 
 <span class="token comment"># &#x62C9;&#x53D6;&#x4E91;&#x7AEF;&#x5206;&#x652F;&#x5230;&#x5F53;&#x524D;&#x5206;&#x652F;&#xFF0C;&#x5E76;&#x81EA;&#x52A8;&#x5408;&#x5E76;</span>
 <span class="token function">git</span> pull origin <span class="token operator">&lt;</span>&#x8FDC;&#x7A0B;&#x5206;&#x652F;&#x540D;<span class="token operator">&gt;</span>
-
-<span class="token comment"># &#x5F53;&#x914D;&#x7F6E;&#x4E0E;&#x8FDC;&#x7A0B;&#x5206;&#x652F;&#x5173;&#x8054;&#x540E;&#xFF0C;&#x53EF;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x5982;&#x4E0B;&#x547D;&#x4EE4;</span>
-<span class="token function">git</span> push
-
-<span class="token comment"># &#x6307;&#x5B9A;&#x5206;&#x652F;&#x63A8;&#x9001;&#x5230;&#x8FDC;&#x7A0B;&#x5206;&#x652F;&#xFF08;&#x8FDC;&#x7A0B;&#x5206;&#x652F;&#x4E0D;&#x5B58;&#x5728;&#x4F1A;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#xFF09;</span>
-<span class="token function">git</span> push origin <span class="token operator">&lt;</span>&#x672C;&#x5730;&#x5206;&#x652F;&#x540D;<span class="token operator">&gt;</span>:<span class="token operator">&lt;</span>&#x8FDC;&#x7A0B;&#x5206;&#x652F;&#x540D;<span class="token operator">&gt;</span>
-
-<span class="token comment"># &#x5F53;&#x524D;&#x5206;&#x652F;&#x63A8;&#x9001;&#x5230;&#x8FDC;&#x7A0B;&#x5206;&#x652F;&#xFF08;&#x8FDC;&#x7A0B;&#x5206;&#x652F;&#x4E0D;&#x5B58;&#x5728;&#x4F1A;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#xFF09;</span>
-<span class="token function">git</span> push origin <span class="token operator">&lt;</span>&#x8FDC;&#x7A0B;&#x5206;&#x652F;&#x540D;<span class="token operator">&gt;</span>
-
-<span class="token comment"># &#x5F53;&#x914D;&#x7F6E;&#x4E0E;&#x8FDC;&#x7A0B;&#x5206;&#x652F;&#x5173;&#x8054;&#x540E;&#xFF0C;&#x53EF;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x5982;&#x4E0B;&#x547D;&#x4EE4;</span>
-<span class="token function">git</span> push
-</pre><h4 class="mume-header" id="%E8%8E%B7%E5%8F%96%E6%9C%80%E6%96%B0%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF%E5%88%B0%E6%9C%AC%E5%9C%B0">&#x83B7;&#x53D6;&#x6700;&#x65B0;&#x8FDC;&#x7A0B;&#x5206;&#x652F;&#x5230;&#x672C;&#x5730;</h4>
+</pre><h4 class="mume-header" id="%E5%AE%89%E5%85%A8%E6%8B%89%E5%8F%96">&#x5B89;&#x5168;&#x62C9;&#x53D6;</h4>
 
 <pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token comment"># Step1.&#x83B7;&#x53D6;&#x8FDC;&#x7A0B;master&#x5206;&#x652F;&#x5230;&#x672C;&#x5730;&#x521B;&#x5EFA;&#x4E3A;tmp</span>
 <span class="token function">git</span> fetch origin master:tmp

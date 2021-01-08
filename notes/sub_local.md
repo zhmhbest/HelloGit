@@ -194,3 +194,55 @@ git merge --no-ff <分支名称> -m <message>
 git branch --merged
 git branch --no-merged
 ```
+
+#### 变基合并
+
+将并行开发的分支合并到原分支
+
+```bash
+# 将当前分支改动合并到指定分支
+git rebase <分支名称>
+
+# 当发生冲突时，可在修改冲突后继续或放弃
+git rebase --continue
+git rebase --abort
+```
+
+测试demo
+
+```bash
+# 原始分支
+mkdir test
+pushd test
+git init
+echo A>A.txt
+git add .
+git commit -m A
+git log --pretty=oneline
+
+# 拷贝分支
+git branch mywork
+
+# 修改master
+echo B>>A.txt
+git add .
+git commit -m B
+git log --pretty=oneline
+
+# 修改mywork
+git checkout mywork
+echo C>C.txt
+git add .
+git commit -m C
+git log --pretty=oneline
+
+# 变基合并
+git rebase master
+git log --pretty=oneline
+more A.txt
+more C.txt
+
+# 删除测试环境
+popd
+rm -rf ./test
+```

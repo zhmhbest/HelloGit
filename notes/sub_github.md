@@ -46,11 +46,33 @@ git clone git@github.com:<用户名>/<远程仓库名>.git
 # 本地仓库关联远程仓库
 git remote add origin https://github.com/<用户名>/<远程仓库名>.git
 
+# 查看远程仓库地址
+git remote -v
+
+# 解除与远程仓库的关联
+git remote rm origin
+
 # 本地分支关联云端分支
 git branch --set-upstream-to=origin/<远程分支名> <本地分支名>
 ```
 
-#### 分支同步
+#### 分支推送
+
+```bash
+# 指定分支推送到远程分支（远程分支不存在会自动创建）
+git push origin <本地分支名>:<远程分支名>
+
+# 当前分支推送到远程分支（远程分支不存在会自动创建）
+git push origin <远程分支名>
+
+# 设定默认远程主机，并推送当前分支到master（以后可省略origin）
+git push -u origin master
+
+# 当配置默认主机与远程分支关联后，可直接使用如下命令
+git push
+```
+
+#### 分支拉取
 
 `git pull = git fetch + git merge`
 
@@ -60,21 +82,9 @@ git fetch origin <远程分支名>:<本地分支名>
 
 # 拉取云端分支到当前分支，并自动合并
 git pull origin <远程分支名>
-
-# 当配置与远程分支关联后，可直接使用如下命令
-git push
-
-# 指定分支推送到远程分支（远程分支不存在会自动创建）
-git push origin <本地分支名>:<远程分支名>
-
-# 当前分支推送到远程分支（远程分支不存在会自动创建）
-git push origin <远程分支名>
-
-# 当配置与远程分支关联后，可直接使用如下命令
-git push
 ```
 
-#### 获取最新远程分支到本地
+#### 安全拉取
 
 ```bash
 # Step1.获取远程master分支到本地创建为tmp
