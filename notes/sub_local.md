@@ -218,31 +218,28 @@ git init
 echo A>A.txt
 git add .
 git commit -m A
-git log --pretty=oneline
-
-# 拷贝分支
 git branch mywork
 
 # 修改master
 echo B>>A.txt
 git add .
 git commit -m B
-git log --pretty=oneline
 
 # 修改mywork
 git checkout mywork
 echo C>C.txt
 git add .
 git commit -m C
-git log --pretty=oneline
 
 # 变基合并
+git log --all --graph
 git rebase master
-git log --pretty=oneline
+git log --all --graph
 more A.txt
 more C.txt
 
 # 删除测试环境
 popd
+# rmdir /s /q .\test
 rm -rf ./test
 ```

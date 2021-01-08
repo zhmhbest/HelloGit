@@ -580,32 +580,29 @@ Untracked files:
 <span class="token builtin class-name">echo</span> A<span class="token operator">&gt;</span>A.txt
 <span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
 <span class="token function">git</span> commit -m A
-<span class="token function">git</span> log --pretty<span class="token operator">=</span>oneline
-
-<span class="token comment"># &#x62F7;&#x8D1D;&#x5206;&#x652F;</span>
 <span class="token function">git</span> branch mywork
 
 <span class="token comment"># &#x4FEE;&#x6539;master</span>
 <span class="token builtin class-name">echo</span> B<span class="token operator">&gt;&gt;</span>A.txt
 <span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
 <span class="token function">git</span> commit -m B
-<span class="token function">git</span> log --pretty<span class="token operator">=</span>oneline
 
 <span class="token comment"># &#x4FEE;&#x6539;mywork</span>
 <span class="token function">git</span> checkout mywork
 <span class="token builtin class-name">echo</span> C<span class="token operator">&gt;</span>C.txt
 <span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
 <span class="token function">git</span> commit -m C
-<span class="token function">git</span> log --pretty<span class="token operator">=</span>oneline
 
 <span class="token comment"># &#x53D8;&#x57FA;&#x5408;&#x5E76;</span>
+<span class="token function">git</span> log --all --graph
 <span class="token function">git</span> rebase master
-<span class="token function">git</span> log --pretty<span class="token operator">=</span>oneline
+<span class="token function">git</span> log --all --graph
 <span class="token function">more</span> A.txt
 <span class="token function">more</span> C.txt
 
 <span class="token comment"># &#x5220;&#x9664;&#x6D4B;&#x8BD5;&#x73AF;&#x5883;</span>
 <span class="token function">popd</span>
+<span class="token comment"># rmdir /s /q .\test</span>
 <span class="token function">rm</span> -rf ./test
 </pre><h2 class="mume-header" id="%E4%BA%91%E7%AB%AF%E8%81%94%E5%8A%A8">&#x4E91;&#x7AEF;&#x8054;&#x52A8;</h2>
 
