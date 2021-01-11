@@ -1,12 +1,3 @@
-<link rel="stylesheet" href="https://zhmhbest.gitee.io/hellomathematics/style/index.css">
-<script src="https://zhmhbest.gitee.io/hellomathematics/style/index.js"></script>
-
-# [HelloGit](https://github.com/zhmhbest/HelloGit)
-
-[TOC]
-
-## 准备工作
-
 <!-- ### Download
 	- [Download Git](https://git-scm.com/downloads/)
 	- [Download SourceTree](https://www.sourcetreeapp.com/)
@@ -14,7 +5,7 @@
 
 ### 配置Cygwin
 
-下载[Cygwin](https://cygwin.com/setup-x86_64.exe)至如下目录
+下载[Cygwin](https://cygwin.com/install.html)至如下目录
 
 ```txt
 CYGWIN_HOME:.
@@ -29,24 +20,21 @@ CYGWIN_HOME:.
 - Root Directory = `%CYGWIN_HOME%`
 - Local Package Directory = `%CYGWIN_HOME%\setup`
 - Direct Connection
-- User URL = `https://mirrors.tuna.tsinghua.edu.cn/cygwin/`
+- User URL = `http://mirrors.aliyun.com/cygwin/`
 - View = `Category`
-  - 启用`wget`
-  - 启用`unzip`
-  - 启用`vim`
-  - 启用`git`
-  - 启用`git-svn`
+  - 启用`wget`、`unzip`、`vim`、`git`、`git-svn`
 - 添加环境变量`CYGWIN_HOME`
 - 添加`%CYGWIN_HOME%\bin`到环境变量`PATH`
 
-#### 右键启动
+#### 右键当前目录启动
 
 ```batch
 REM 以管理员身份运行一个“cmd.exe”窗口
 SET REG_ROOT=HKLM\SOFTWARE\Classes\Directory\background\shell
-reg add "%REG_ROOT%\bashPrompt" /f /ve /t REG_SZ /d "在此处打开 Bash 窗口(&B)"
-reg add "%REG_ROOT%\bashPrompt" /f /v "Icon" /t REG_SZ /d "%CYGWIN_HOME%\Cygwin-Terminal.ico"
-reg add "%REG_ROOT%\bashPrompt\command" /f /ve /t REG_SZ /d "\"%CYGWIN_HOME%\bin\mintty.exe\" -c \"%CYGWIN_HOME%\%UserName%\.bash_profile\""
+REG ADD "%REG_ROOT%\bashPrompt" /f /ve /t REG_SZ /d "在此处打开 Bash 窗口(&B)"
+REG ADD "%REG_ROOT%\bashPrompt" /f /v "Icon" /t REG_SZ /d "%CYGWIN_HOME%\Cygwin-Terminal.ico"
+REG ADD "%REG_ROOT%\bashPrompt\command" /f /ve /t REG_SZ /d "\"%CYGWIN_HOME%\bin\mintty.exe\" -c \"%CYGWIN_HOME%\%UserName%\.bash_profile\""
+REM REG DELETE "%REG_ROOT%\bashPrompt" /f
 ```
 
 <!--
@@ -88,35 +76,14 @@ zhmhbest@gmail.com
 ```bash
 git config --global user.name "YourName"
 git config --global user.email "YourName@gmail.com"
-more ~/.gitconfig
 ```
 
-## 本地使用
-
-@import "sub_local.md"
-
-## 云端联动
-
-### 常用云平台
-
-- [Github](https://github.com)
-- [Gitee](https://gitee.com/)
-- SVN: 内网部署
-
-### 创建密钥
+#### 解决换行符异常
 
 ```bash
-# Bash
-ssh-keygen -t rsa -C "YourName@gmail.com"
-ls -al ~/.ssh/
-# id_rsa     : 私钥（个人持有）
-# id_rsa.pub : 公钥（公开到云端）
+# 提交时转换为LF，检出时不转换
+git config --global core.autocrlf input
+
+# 拒绝提交包含混合换行符的文件
+git config --global core.safecrlf true
 ```
-
-### Github
-
-@import "sub_github.md"
-
-### SVN
-
-@import "sub_svn.md"
