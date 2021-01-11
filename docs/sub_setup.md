@@ -80,6 +80,9 @@ git config --global user.email "YourName@gmail.com"
 
 #### 解决换行符异常
 
+- 在VSCode中搜索`files.eol`设为`\n`；
+- 在IDEA中找到`Editor`>`Code Style`>`Line separator`设为`Unix and macOS (\n)`。
+
 ```bash
 # core.autocrlf = true(提交LF检出CRLF) | false(不转换) | input(提交LF检出不转换)
 git config --global core.autocrlf input
