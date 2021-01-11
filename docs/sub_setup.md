@@ -81,9 +81,9 @@ git config --global user.email "YourName@gmail.com"
 #### 解决换行符异常
 
 ```bash
-# 提交时转换为LF，检出时不转换
+# core.autocrlf = true(提交LF检出CRLF) | false(不转换) | input(提交LF检出不转换)
 git config --global core.autocrlf input
 
-# 拒绝提交包含混合换行符的文件
+# core.safecrlf = true(拒绝提交混合换行符文件) | false(允许) | warn(警告)
 git config --global core.safecrlf true
 ```
