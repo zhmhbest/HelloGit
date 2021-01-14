@@ -23,8 +23,22 @@ CYGWIN_HOME:.
 - User URL = `http://mirrors.aliyun.com/cygwin/`
 - View = `Category`
   - 启用`wget`、`unzip`、`vim`、`git`、`git-svn`
-- 添加环境变量`CYGWIN_HOME`
-- 添加`%CYGWIN_HOME%\bin`到环境变量`PATH`
+- 配置环境变量
+  - 添加环境变量`CYGWIN_HOME`
+  - 添加`%CYGWIN_HOME%\bin`到环境变量`PATH`
+  - 添加`%CYGWIN_HOME%\usr\local\bin`到环境变量`PATH`
+
+<div class='hint'><pre>
+wesenv user CYGWIN_HOME "%CD%"
+wesaddpath %CYGWIN_HOME%\usr\local\bin
+wesaddpath %CYGWIN_HOME%\bin
+</pre></div>
+
+- 关联用户目录
+
+```batch
+MKLINK /J %CYGWIN_HOME%\home\%UserName% %UserProfile%
+```
 
 #### 右键当前目录启动
 
@@ -64,13 +78,11 @@ IF NOT EXIST "%ProgramFiles%\Git" MKDIR "%ProgramFiles%\Git"
 IF NOT EXIST "%ProgramFiles%\Git\cmd" MKLINK /J "%ProgramFiles%\Git\cmd" "%CYGWIN_HOME%\cmd"
 ```
 
-- 添加`%ProgramFiles%\Git\cmd`到环境变量`PATH`
-
 #### 个人信息
 
 <!--
-zhmhbest
-zhmhbest@gmail.com
+git config --global user.name zhmhbest
+git config --global user.email zhmhbest@gmail.com
 -->
 
 ```bash
@@ -85,7 +97,7 @@ git config --global user.email "YourName@gmail.com"
 
 ```bash
 # core.autocrlf = true(提交LF检出CRLF) | false(不转换) | input(提交LF检出不转换)
-git config --global core.autocrlf input
+git config --global core.autocrlf false
 
 # core.safecrlf = true(拒绝提交混合换行符文件) | false(允许) | warn(警告)
 git config --global core.safecrlf true
