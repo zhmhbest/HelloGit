@@ -28,19 +28,29 @@ CYGWIN_HOME:.
   - 添加`%CYGWIN_HOME%\bin`到环境变量`PATH`
   - 添加`%CYGWIN_HOME%\usr\local\bin`到环境变量`PATH`
 
-<div class='hint'><pre>
-wesenv user CYGWIN_HOME "%CD%"
-wesaddpath %CYGWIN_HOME%\usr\local\bin
-wesaddpath %CYGWIN_HOME%\bin
-</pre></div>
+```batch
+SET PATH=%CD%\bin;%PATH%
+SET PATH=%CD%\WindowsEasyShell\bin;%PATH%
 
-- 关联用户目录
+REM WindowsEasyShell
+git clone https://github.com/zhmhbest/WindowsEasyShell.git
+CALL wessuper .\WindowsEasyShell\install.bat
+
+REM CYGWIN_HOME
+CALL wesenv user CYGWIN_HOME "%CD%"
+CALL wesaddpath %CYGWIN_HOME%\usr\local\bin
+CALL wesaddpath %CYGWIN_HOME%\bin
+@FOR /F %i IN ('basename %UserProfile%') DO @wesenv user UserName %i
+```
+
+- 映射用户目录
 
 ```batch
+RMDIR /s /q %CYGWIN_HOME%\home\%UserName%
 MKLINK /J %CYGWIN_HOME%\home\%UserName% %UserProfile%
 ```
 
-#### 右键当前目录启动
+#### 添加当前目录启动
 
 ```batch
 REM 以管理员身份运行一个“cmd.exe”窗口
@@ -80,17 +90,12 @@ IF NOT EXIST "%ProgramFiles%\Git\cmd" MKLINK /J "%ProgramFiles%\Git\cmd" "%CYGWI
 
 #### 个人信息
 
-<!--
-git config --global user.name zhmhbest
-git config --global user.email zhmhbest@gmail.com
--->
-
 ```bash
 git config --global user.name "YourName"
 git config --global user.email "YourName@gmail.com"
 ```
 
-#### 解决换行符异常
+#### 限制换行符
 
 - 在VSCode中搜索`files.eol`设为`\n`；
 - 在IDEA中找到`Editor`>`Code Style`>`Line separator`设为`Unix and macOS (\n)`。
@@ -102,3 +107,10 @@ git config --global core.autocrlf false
 # core.safecrlf = true(拒绝提交混合换行符文件) | false(允许) | warn(警告)
 git config --global core.safecrlf true
 ```
+
+<!--
+git config --global user.name zhmhbest
+git config --global user.email zhmhbest@gmail.com
+git config --global core.autocrlf false
+git config --global core.safecrlf true
+-->
