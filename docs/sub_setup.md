@@ -34,13 +34,13 @@ SET PATH=%CD%\WindowsEasyShell\bin;%PATH%
 
 REM WindowsEasyShell
 git clone https://github.com/zhmhbest/WindowsEasyShell.git
-CALL wessuper .\WindowsEasyShell\install.bat
+CALL super .\WindowsEasyShell\install.bat
 
 REM CYGWIN_HOME
-CALL wesenv user CYGWIN_HOME "%CD%"
-CALL wesaddpath %CYGWIN_HOME%\usr\local\bin
-CALL wesaddpath %CYGWIN_HOME%\bin
-@FOR /F %i IN ('basename %UserProfile%') DO @wesenv user UserName %i
+CALL addenv user CYGWIN_HOME "%CD%"
+CALL addpath %CYGWIN_HOME%\usr\local\bin
+CALL addpath %CYGWIN_HOME%\bin
+@FOR /F %i IN ('basename %UserProfile%') DO @addenv user UserName %i
 ```
 
 - 映射用户目录

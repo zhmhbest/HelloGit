@@ -382,13 +382,13 @@ pre[data-line] .line-highlight[data-end]:after {
 
 <span class="token comment">REM WindowsEasyShell</span>
 <span class="token command"><span class="token keyword">git</span> clone https://github.com/zhmhbest/WindowsEasyShell.git</span>
-<span class="token command"><span class="token keyword">CALL</span> wessuper .\WindowsEasyShell\install.bat</span>
+<span class="token command"><span class="token keyword">CALL</span> super .\WindowsEasyShell\install.bat</span>
 
 <span class="token comment">REM CYGWIN_HOME</span>
-<span class="token command"><span class="token keyword">CALL</span> wesenv user CYGWIN_HOME <span class="token string">&quot;%CD%&quot;</span></span>
-<span class="token command"><span class="token keyword">CALL</span> wesaddpath <span class="token variable">%CYGWIN_HOME%</span>\usr\local\bin</span>
-<span class="token command"><span class="token keyword">CALL</span> wesaddpath <span class="token variable">%CYGWIN_HOME%</span>\bin</span>
-<span class="token operator">@</span><span class="token command"><span class="token keyword">FOR</span> <span class="token parameter attr-name">/F</span> <span class="token variable">%i</span> IN (&apos;basename <span class="token variable">%UserProfile%</span>&apos;</span><span class="token punctuation">)</span> DO <span class="token operator">@</span>wesenv user UserName %i
+<span class="token command"><span class="token keyword">CALL</span> addenv user CYGWIN_HOME <span class="token string">&quot;%CD%&quot;</span></span>
+<span class="token command"><span class="token keyword">CALL</span> addpath <span class="token variable">%CYGWIN_HOME%</span>\usr\local\bin</span>
+<span class="token command"><span class="token keyword">CALL</span> addpath <span class="token variable">%CYGWIN_HOME%</span>\bin</span>
+<span class="token operator">@</span><span class="token command"><span class="token keyword">FOR</span> <span class="token parameter attr-name">/F</span> <span class="token variable">%i</span> IN (&apos;basename <span class="token variable">%UserProfile%</span>&apos;</span><span class="token punctuation">)</span> DO <span class="token operator">@</span>addenv user UserName %i
 </pre><ul>
 <li>&#x6620;&#x5C04;&#x7528;&#x6237;&#x76EE;&#x5F55;</li>
 </ul>
