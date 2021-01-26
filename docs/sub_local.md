@@ -125,7 +125,10 @@ git reset --hard <7位地址>
 git update-index --assume-unchange <filename>
 
 # 恢复文件监测
-git update-index --no-assume-uchange xxfile
+git update-index --no-assume-uchange <filename>
+
+# 恢复所有文件监测
+git update-index --really-refresh
 ```
 
 ### 工作现场
