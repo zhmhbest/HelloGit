@@ -301,6 +301,7 @@ pre[data-line] .line-highlight[data-end]:after {
 <li><a href="#%E7%89%88%E6%9C%AC%E8%AE%B0%E5%BD%95">&#x7248;&#x672C;&#x8BB0;&#x5F55;</a></li>
 <li><a href="#%E6%94%BE%E5%BC%83%E5%B7%A5%E4%BD%9C%E5%8C%BA%E4%BF%AE%E6%94%B9">&#x653E;&#x5F03;&#x5DE5;&#x4F5C;&#x533A;&#x4FEE;&#x6539;</a></li>
 <li><a href="#%E7%89%88%E6%9C%AC%E6%81%A2%E5%A4%8D">&#x7248;&#x672C;&#x6062;&#x590D;</a></li>
+<li><a href="#%E5%81%9C%E6%AD%A2%E7%9B%91%E6%B5%8B">&#x505C;&#x6B62;&#x76D1;&#x6D4B;</a></li>
 </ul>
 </li>
 <li><a href="#%E5%B7%A5%E4%BD%9C%E7%8E%B0%E5%9C%BA">&#x5DE5;&#x4F5C;&#x73B0;&#x573A;</a></li>
@@ -515,6 +516,13 @@ Untracked files:
 
 <span class="token comment"># &#x56DE;&#x9000;&#x5230;&#x6307;&#x5B9A;&#x7248;&#x672C;&#xFF0C;&#x53C2;&#x6570;&#x7531;`git reflog`&#x83B7;&#x53D6;</span>
 <span class="token function">git</span> reset --hard <span class="token operator">&lt;</span><span class="token number">7</span>&#x4F4D;&#x5730;&#x5740;<span class="token operator">&gt;</span>
+</pre><h4 class="mume-header" id="%E5%81%9C%E6%AD%A2%E7%9B%91%E6%B5%8B">&#x505C;&#x6B62;&#x76D1;&#x6D4B;</h4>
+
+<pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token comment"># &#x4FDD;&#x6301;&#x6587;&#x4EF6;&#x8DDF;&#x8E2A;&#xFF0C;&#x4F46;&#x4E0D;&#x76D1;&#x6D4B;&#x5176;&#x4FEE;&#x6539;&#xFF08;`git status`&#x770B;&#x4E0D;&#x5230;&#x4FEE;&#x6539;&#xFF09;</span>
+<span class="token function">git</span> update-index --assume-unchange <span class="token operator">&lt;</span>filename<span class="token operator">&gt;</span>
+
+<span class="token comment"># &#x6062;&#x590D;&#x6587;&#x4EF6;&#x76D1;&#x6D4B;</span>
+<span class="token function">git</span> update-index --no-assume-uchange xxfile
 </pre><h3 class="mume-header" id="%E5%B7%A5%E4%BD%9C%E7%8E%B0%E5%9C%BA">&#x5DE5;&#x4F5C;&#x73B0;&#x573A;</h3>
 
 <pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token comment"># &#x4FDD;&#x5B58;&#x5DE5;&#x4F5C;&#x73B0;&#x573A;</span>

@@ -118,6 +118,16 @@ git reset --hard HEAD~10
 git reset --hard <7位地址>
 ```
 
+#### 停止监测
+
+```bash
+# 保持文件跟踪，但不监测其修改（`git status`看不到修改）
+git update-index --assume-unchange <filename>
+
+# 恢复文件监测
+git update-index --no-assume-uchange xxfile
+```
+
 ### 工作现场
 
 ```bash
