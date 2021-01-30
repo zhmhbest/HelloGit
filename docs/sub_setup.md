@@ -102,10 +102,15 @@ git config --global user.email "YourName@gmail.com"
 
 ```bash
 # core.autocrlf = true(提交LF检出CRLF) | false(不转换) | input(提交LF检出不转换)
-git config --global core.autocrlf false
+git config --global core.autocrlf input
 
 # core.safecrlf = true(拒绝提交混合换行符文件) | false(允许) | warn(警告)
 git config --global core.safecrlf true
+```
+
+```bash
+# 替换文件换行符CRLF为LF
+sed -i 's/\r//g' README.md
 ```
 
 <!--
