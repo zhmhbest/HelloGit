@@ -22,7 +22,7 @@ CYGWIN_HOME:.
 - Direct Connection
 - User URL = `http://mirrors.aliyun.com/cygwin/`
 - View = `Category`
-  - 启用`wget`、`unzip`、`vim`、`git`、`git-svn`
+  - 启用`wget`、`unzip`、`bzip2`、`vim`、`git`、`git-svn`
 - 配置环境变量
   - 添加环境变量`CYGWIN_HOME`
   - 添加`%CYGWIN_HOME%\bin`到环境变量`PATH`
