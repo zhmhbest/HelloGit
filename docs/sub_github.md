@@ -100,6 +100,26 @@ git merge tmp
 git branch –d tmp
 ```
 
+#### 拉取文件夹
+
+只拉取一个仓库的部分文件夹。
+
+```bash
+remote_origin="https://github.com/cdarlint/winutils"
+dir_path="hadoop-3.2.1/bin"
+
+mkdir dump/
+pushd dump/
+git init
+git remote add -f origin "$remote_origin"
+#允许使用Sparse Checkout模式
+git config core.sparsecheckout true
+echo "$dir_path">>.git/info/sparse-checkout
+git pull origin master
+# popd
+# rm -f dump/
+```
+
 #### 远程分支管理
 
 ```bash
