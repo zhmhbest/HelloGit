@@ -529,6 +529,25 @@ Untracked files:
 
 <span class="token comment"># &#x6062;&#x590D;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x76D1;&#x6D4B;</span>
 <span class="token function">git</span> update-index --really-refresh
+
+<span class="token comment"># &#x67E5;&#x770B;&#x88AB;&#x5FFD;&#x7565;&#x4FEE;&#x6539;&#x7684;&#x6587;&#x4EF6;</span>
+<span class="token function">git</span> ls-files -v <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">&apos;^h\ &apos;</span>
+<span class="token function">git</span> ls-files -v <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">&apos;^h\ &apos;</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">&apos;{print <span class="token variable">$2</span>}&apos;</span>
+
+<span class="token comment"># &#x6B63;&#x5219;&#x5339;&#x914D;&#x5FFD;&#x7565;</span>
+<span class="token keyword">function</span> <span class="token function-name function">ignore</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment"># argv = match</span>
+    <span class="token assign-left variable"><span class="token environment constant">IFS</span></span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token builtin class-name">echo</span> -en <span class="token string">&quot;<span class="token entity" title="\n">\n</span><span class="token entity" title="\b">\b</span>&quot;</span><span class="token variable">`</span></span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token for-or-select variable">filename</span> <span class="token keyword">in</span> <span class="token variable"><span class="token variable">`</span><span class="token function">git</span> status <span class="token operator">|</span> <span class="token function">egrep</span> <span class="token string">&apos;^\s+(modified|deleted):&apos;</span> <span class="token operator">|</span> <span class="token function">gawk</span> <span class="token string">&apos;{print <span class="token variable">$2</span>}&apos;</span><span class="token variable">`</span></span>
+    <span class="token keyword">do</span>
+        <span class="token builtin class-name">echo</span> <span class="token variable">$filename</span> <span class="token operator">|</span> <span class="token function">egrep</span> <span class="token string">&quot;<span class="token variable">$1</span>&quot;</span><span class="token operator">&gt;</span>/dev/nul <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>
+            <span class="token builtin class-name">echo</span> <span class="token string">&quot;ignore: <span class="token variable">$filename</span>&quot;</span>
+            <span class="token function">git</span> update-index --assume-unchange <span class="token string">&quot;<span class="token variable">$filename</span>&quot;</span>
+        <span class="token punctuation">)</span>
+    <span class="token keyword">done</span>
+<span class="token punctuation">}</span>
+ignore <span class="token string">&apos;^classes/&apos;</span>
+ignore <span class="token string">&apos;^build/&apos;</span>
 </pre><h3 class="mume-header" id="%E5%B7%A5%E4%BD%9C%E7%8E%B0%E5%9C%BA">&#x5DE5;&#x4F5C;&#x73B0;&#x573A;</h3>
 
 <pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token comment"># &#x4FDD;&#x5B58;&#x5DE5;&#x4F5C;&#x73B0;&#x573A;</span>

@@ -129,6 +129,25 @@ git update-index --no-assume-uchange <filename>
 
 # 恢复所有文件监测
 git update-index --really-refresh
+
+# 查看被忽略修改的文件
+git ls-files -v | grep '^h\ '
+git ls-files -v | grep '^h\ ' | awk '{print $2}'
+
+# 正则匹配忽略
+function ignore() {
+    # argv = match
+    IFS=`echo -en "\n\b"`;
+    for filename in `git status | egrep '^\s+(modified|deleted):' | gawk '{print $2}'`
+    do
+        echo $filename | egrep "$1">/dev/nul && (
+            echo "ignore: $filename"
+            git update-index --assume-unchange "$filename"
+        )
+    done
+}
+ignore '^classes/'
+ignore '^build/'
 ```
 
 ### 工作现场
