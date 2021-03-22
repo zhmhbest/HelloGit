@@ -3,7 +3,12 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+      
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({"extensions":["tex2jax.js"],"jax":["input/TeX","output/HTML-CSS"],"messageStyle":"none","tex2jax":{"processEnvironments":false,"processEscapes":true,"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]},"TeX":{"extensions":["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]},"HTML-CSS":{"availableFonts":["TeX"]}});
+        </script>
+        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+        
       
       
       
@@ -336,6 +341,12 @@ pre[data-line] .line-highlight[data-end]:after {
 <li><a href="#%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86">&#x8FDC;&#x7A0B;&#x5206;&#x652F;&#x7BA1;&#x7406;</a></li>
 </ul>
 </li>
+<li><a href="#github-cli">Github-Cli</a>
+<ul>
+<li><a href="#%E7%99%BB%E5%BD%95">&#x767B;&#x5F55;</a></li>
+<li><a href="#%E4%BB%93%E5%BA%93%E6%93%8D%E4%BD%9C">&#x4ED3;&#x5E93;&#x64CD;&#x4F5C;</a></li>
+</ul>
+</li>
 <li><a href="#svn">SVN</a>
 <ul>
 <li><a href="#svn%E4%BB%93%E5%BA%93%E7%BB%93%E6%9E%84">SVN&#x4ED3;&#x5E93;&#x7ED3;&#x6784;</a></li>
@@ -354,12 +365,12 @@ pre[data-line] .line-highlight[data-end]:after {
 <h3 class="mume-header" id="%E9%85%8D%E7%BD%AEcygwin">&#x914D;&#x7F6E;Cygwin</h3>
 
 <p>&#x4E0B;&#x8F7D;<a href="https://cygwin.com/install.html">Cygwin</a>&#x81F3;&#x5982;&#x4E0B;&#x76EE;&#x5F55;</p>
-<pre data-role="codeBlock" data-info="txt" class="language-txt"><code>CYGWIN_HOME:.
+<pre data-role="codeBlock" data-info="txt" class="language-txt">CYGWIN_HOME:.
 &#x251C;&#x2500;setup
 &#x2502;      setup-x86_64.exe
 &#x2502;
 &#x2514;&#x2500;...
-</code></pre><ul>
+</pre><ul>
 <li>&#x8FD0;&#x884C;<code>setup-x86_64.exe</code></li>
 <li>Install from Internet</li>
 <li>Root Directory = <code>%CYGWIN_HOME%</code></li>
@@ -474,14 +485,14 @@ pre[data-line] .line-highlight[data-end]:after {
 <pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token comment"># &#x7EFF;&#x8272;&#xFF1A;&#x6682;&#x5B58;&#x533A;&#x8BB0;&#x5F55;</span>
 <span class="token comment"># &#x7EA2;&#x8272;&#xFF1A;&#x672A;&#x8FFD;&#x8E2A;&#x7684;&#x6587;&#x4EF6;</span>
 <span class="token function">git</span> status
-</pre><pre data-role="codeBlock" data-info="txt" class="language-txt"><code>Changes to be committed:
+</pre><pre data-role="codeBlock" data-info="txt" class="language-txt">Changes to be committed:
         new file:   ?
         deleted:    ?
         modified:   ?
 
 Untracked files:
         ?
-</code></pre><h3 class="mume-header" id="%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86">&#x7248;&#x672C;&#x7BA1;&#x7406;</h3>
+</pre><h3 class="mume-header" id="%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86">&#x7248;&#x672C;&#x7BA1;&#x7406;</h3>
 
 <h4 class="mume-header" id="%E7%89%88%E6%9C%AC%E8%AE%B0%E5%BD%95">&#x7248;&#x672C;&#x8BB0;&#x5F55;</h4>
 
@@ -792,11 +803,35 @@ ssh-keygen -t rsa -C <span class="token string">&quot;YourName@gmail.com&quot;</
 <span class="token function">git</span> branch &#x2013;d -r <span class="token operator">&lt;</span>&#x8FDC;&#x7A0B;&#x5206;&#x652F;&#x540D;<span class="token operator">&gt;</span>
 <span class="token function">git</span> push origin :<span class="token operator">&lt;</span>&#x8FDC;&#x7A0B;&#x5206;&#x652F;&#x540D;<span class="token operator">&gt;</span>
 <span class="token function">git</span> push origin --delete <span class="token operator">&lt;</span>&#x8FDC;&#x7A0B;&#x5206;&#x652F;&#x540D;<span class="token operator">&gt;</span>
+</pre><h3 class="mume-header" id="github-cli">Github-Cli</h3>
+
+<blockquote>
+<p><a href="https://cli.github.com/">&#x4E0B;&#x8F7D; GitHub CLI</a></p>
+</blockquote>
+<h4 class="mume-header" id="%E7%99%BB%E5%BD%95">&#x767B;&#x5F55;</h4>
+
+<pre data-role="codeBlock" data-info="bash" class="language-bash">gh auth login
+<span class="token comment"># GitHub.com</span>
+<span class="token comment"># SSH</span>
+<span class="token comment"># %UserProfile%\.ssh\id_rsa.pub</span>
+<span class="token comment"># Paste an authentication token</span>
+<span class="token comment"># https://github.com/settings/tokens</span>
+</pre><h4 class="mume-header" id="%E4%BB%93%E5%BA%93%E6%93%8D%E4%BD%9C">&#x4ED3;&#x5E93;&#x64CD;&#x4F5C;</h4>
+
+<pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token comment"># &#x5217;&#x51FA;&#x6240;&#x6709;&#x4ED3;&#x5E93;</span>
+gh repo list
+
+<span class="token comment"># &#x67E5;&#x770B;&#x4ED3;&#x5E93;README</span>
+gh repo view <span class="token operator">&lt;</span>&#x7528;&#x6237;&#x540D;<span class="token operator">&gt;</span>/<span class="token operator">&lt;</span>&#x4ED3;&#x5E93;&#x540D;<span class="token operator">&gt;</span>
+gh repo view <span class="token operator">&lt;</span>&#x4ED3;&#x5E93;&#x540D;<span class="token operator">&gt;</span>
+
+<span class="token comment"># &#x521B;&#x5EFA;&#x65B0;&#x4ED3;&#x5E93;</span>
+gh repo create <span class="token operator">&lt;</span>&#x65B0;&#x4ED3;&#x5E93;&#x540D;<span class="token operator">&gt;</span>
 </pre><h3 class="mume-header" id="svn">SVN</h3>
 
 <h4 class="mume-header" id="svn%E4%BB%93%E5%BA%93%E7%BB%93%E6%9E%84">SVN&#x4ED3;&#x5E93;&#x7ED3;&#x6784;</h4>
 
-<pre data-role="codeBlock" data-info="txt" class="language-txt"><code>&#x4ED3;&#x5E93;&#x5730;&#x5740;
+<pre data-role="codeBlock" data-info="txt" class="language-txt">&#x4ED3;&#x5E93;&#x5730;&#x5740;
 &#x251C;&#x2500;branches          &#x9879;&#x76EE;&#x5206;&#x652F;
 &#x2502;  &#x251C;&#x2500;A
 &#x2502;  &#x2514;&#x2500;B
@@ -805,7 +840,7 @@ ssh-keygen -t rsa -C <span class="token string">&quot;YourName@gmail.com&quot;</
 &#x2502;  &#x2514;&#x2500;1.1
 &#x2514;&#x2500;trunk             &#x4E3B;&#x7248;&#x672C;
     &#x2514;&#x2500;project
-</code></pre><h4 class="mume-header" id="%E4%BB%8Esvn%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%8B%E9%9A%86%E9%A1%B9%E7%9B%AE">&#x4ECE;SVN&#x670D;&#x52A1;&#x5668;&#x514B;&#x9686;&#x9879;&#x76EE;</h4>
+</pre><h4 class="mume-header" id="%E4%BB%8Esvn%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%85%8B%E9%9A%86%E9%A1%B9%E7%9B%AE">&#x4ECE;SVN&#x670D;&#x52A1;&#x5668;&#x514B;&#x9686;&#x9879;&#x76EE;</h4>
 
 <pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token comment"># &#x514B;&#x9686;&#x5230;&#x672C;&#x5730;</span>
 <span class="token function">git</span> svn clone <span class="token punctuation">[</span>-r <span class="token operator">&lt;</span>&#x5F00;&#x59CB;&#x63D0;&#x4EA4;&#x8BB0;&#x5F55;<span class="token operator">&gt;</span>:<span class="token operator">&lt;</span>&#x7ED3;&#x675F;&#x63D0;&#x4EA4;&#x8BB0;&#x5F55;<span class="token operator">&gt;</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>--prefix<span class="token operator">=</span>svn/<span class="token punctuation">]</span> <span class="token operator">&lt;</span>&#x4ED3;&#x5E93;&#x5730;&#x5740;<span class="token operator">|</span>&#x5206;&#x652F;&#x5730;&#x5740;<span class="token operator">&gt;</span>
