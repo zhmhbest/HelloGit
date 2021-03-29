@@ -627,11 +627,16 @@ ignore <span class="token string">&apos;^.classpath&apos;</span>
 </tr>
 </tbody>
 </table>
-<pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token comment"># &#x5FEB;&#x901F;&#x5408;&#x5E76;&#xFF08;Fast-forward&#xFF09;&#x6307;&#x5B9A;&#x5206;&#x652F;&#x5230;&#x5408;&#x5E76;&#x5230;&#x5F53;&#x524D;&#x5206;&#x652F;</span>
-<span class="token function">git</span> merge <span class="token operator">&lt;</span>&#x5206;&#x652F;&#x540D;&#x79F0;<span class="token operator">&gt;</span> -m <span class="token operator">&lt;</span>message<span class="token operator">&gt;</span>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token comment"># &#x5FEB;&#x901F;&#x5408;&#x5E76;&#xFF08;Fast-forward&#xFF09;</span>
+<span class="token comment"># &#x53EA;&#x66F4;&#x65B0;&#x5206;&#x652F;&#x6307;&#x9488;&#xFF0C;&#x4E0D;&#x505A;&#x65B0;&#x7684;&#x63D0;&#x4EA4;&#xFF08;&#x4EC5;&#x9002;&#x7528;&#x4E8E;&#x65B0;&#x5206;&#x652F;&#x5DF2;&#x5305;&#x542B;&#x65E7;&#x5206;&#x652F;&#x7684;&#x6240;&#x6709;&#x63D0;&#x4EA4;&#x8BB0;&#x5F55;&#xFF09;</span>
+<span class="token function">git</span> merge &#x2013;ff-only <span class="token operator">&lt;</span>&#x5206;&#x652F;&#x540D;&#x79F0;<span class="token operator">&gt;</span> -m <span class="token operator">&lt;</span>message<span class="token operator">&gt;</span>
 
 <span class="token comment"># &#x7981;&#x7528;&#x5FEB;&#x901F;&#x5408;&#x5E76;&#xFF08;&#x5408;&#x5E76;&#x540E;&#x91CD;&#x65B0;&#x505A;&#x4E00;&#x6B21;&#x65B0;&#x7684;&#x63D0;&#x4EA4;&#xFF09;</span>
 <span class="token function">git</span> merge --no-ff <span class="token operator">&lt;</span>&#x5206;&#x652F;&#x540D;&#x79F0;<span class="token operator">&gt;</span> -m <span class="token operator">&lt;</span>message<span class="token operator">&gt;</span>
+
+<span class="token comment"># &#x4F18;&#x5148;&#x4F7F;&#x7528;&#x5FEB;&#x901F;&#x5408;&#x5E76;&#xFF0C;&#x82E5;&#x5931;&#x8D25;&#x5219;&#x4F7F;&#x7528;&#x975E;&#x5FEB;&#x901F;&#x5408;&#x5E76;</span>
+<span class="token function">git</span> merge <span class="token operator">&lt;</span>&#x5206;&#x652F;&#x540D;&#x79F0;<span class="token operator">&gt;</span> -m <span class="token operator">&lt;</span>message<span class="token operator">&gt;</span>
+<span class="token function">git</span> merge &#x2013;ff <span class="token operator">&lt;</span>&#x5206;&#x652F;&#x540D;&#x79F0;<span class="token operator">&gt;</span> -m <span class="token operator">&lt;</span>message<span class="token operator">&gt;</span>
 
 <span class="token comment"># &#x67E5;&#x770B;&#x5DF2;&#x5408;&#x5E76;&#x3001;&#x672A;&#x5408;&#x5E76;&#x7684;&#x5206;&#x652F;</span>
 <span class="token function">git</span> branch --merged

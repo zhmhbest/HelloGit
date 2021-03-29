@@ -220,11 +220,16 @@ git checkout -b <新分支名称>
 | 两个分支分别新增或修改了各自的文件 | 合并后，Git会自动再做一次提交 |
 
 ```bash
-# 快速合并（Fast-forward）指定分支到合并到当前分支
-git merge <分支名称> -m <message>
+# 快速合并（Fast-forward）
+# 只更新分支指针，不做新的提交（仅适用于新分支已包含旧分支的所有提交记录）
+git merge –ff-only <分支名称> -m <message>
 
 # 禁用快速合并（合并后重新做一次新的提交）
 git merge --no-ff <分支名称> -m <message>
+
+# 优先使用快速合并，若失败则使用非快速合并
+git merge <分支名称> -m <message>
+git merge –ff <分支名称> -m <message>
 
 # 查看已合并、未合并的分支
 git branch --merged
