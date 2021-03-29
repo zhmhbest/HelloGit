@@ -3,12 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      
-        <script type="text/x-mathjax-config">
-          MathJax.Hub.Config({"extensions":["tex2jax.js"],"jax":["input/TeX","output/HTML-CSS"],"messageStyle":"none","tex2jax":{"processEnvironments":false,"processEscapes":true,"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]},"TeX":{"extensions":["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]},"HTML-CSS":{"availableFonts":["TeX"]}});
-        </script>
-        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
-        
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css">
       
       
       
@@ -335,8 +330,11 @@ pre[data-line] .line-highlight[data-end]:after {
 <li><a href="#%E4%BB%8E%E4%BA%91%E7%AB%AF%E5%85%8B%E9%9A%86%E4%B8%80%E4%B8%AA%E4%BB%93%E5%BA%93">&#x4ECE;&#x4E91;&#x7AEF;&#x514B;&#x9686;&#x4E00;&#x4E2A;&#x4ED3;&#x5E93;</a></li>
 <li><a href="#%E5%85%B3%E8%81%94%E4%BA%91%E7%AB%AF">&#x5173;&#x8054;&#x4E91;&#x7AEF;</a></li>
 <li><a href="#%E5%88%86%E6%94%AF%E6%8E%A8%E9%80%81">&#x5206;&#x652F;&#x63A8;&#x9001;</a></li>
-<li><a href="#%E5%88%86%E6%94%AF%E6%8B%89%E5%8F%96">&#x5206;&#x652F;&#x62C9;&#x53D6;</a></li>
+<li><a href="#%E5%88%86%E6%94%AF%E6%8B%89%E5%8F%96">&#x5206;&#x652F;&#x62C9;&#x53D6;</a>
+<ul>
 <li><a href="#%E5%AE%89%E5%85%A8%E6%8B%89%E5%8F%96">&#x5B89;&#x5168;&#x62C9;&#x53D6;</a></li>
+</ul>
+</li>
 <li><a href="#%E6%8B%89%E5%8F%96%E6%96%87%E4%BB%B6%E5%A4%B9">&#x62C9;&#x53D6;&#x6587;&#x4EF6;&#x5939;</a></li>
 <li><a href="#%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86">&#x8FDC;&#x7A0B;&#x5206;&#x652F;&#x7BA1;&#x7406;</a></li>
 </ul>
@@ -760,9 +758,14 @@ ssh-keygen -t rsa -C <span class="token string">&quot;YourName@gmail.com&quot;</
 <pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token comment"># &#x62C9;&#x53D6;&#x4E91;&#x7AEF;&#x5206;&#x652F;&#x5230;&#x672C;&#x5730;&#x5E76;&#x521B;&#x5EFA;&#x65B0;&#x7684;&#x672C;&#x5730;&#x5206;&#x652F;</span>
 <span class="token function">git</span> fetch origin <span class="token operator">&lt;</span>&#x8FDC;&#x7A0B;&#x5206;&#x652F;&#x540D;<span class="token operator">&gt;</span>:<span class="token operator">&lt;</span>&#x672C;&#x5730;&#x5206;&#x652F;&#x540D;<span class="token operator">&gt;</span>
 
+<span class="token comment"># &#x8BBE;&#x7F6E;&#x6267;&#x884C;pull&#x64CD;&#x4F5C;&#x65F6;&#x7684;&#x5408;&#x5E76;&#x65B9;&#x6CD5;</span>
+<span class="token function">git</span> config pull.rebase <span class="token boolean">false</span>  <span class="token comment"># merge (the default strategy)</span>
+<span class="token function">git</span> config pull.rebase <span class="token boolean">true</span>   <span class="token comment"># rebase</span>
+<span class="token function">git</span> config pull.ff only       <span class="token comment"># fast-forward only</span>
+
 <span class="token comment"># &#x62C9;&#x53D6;&#x4E91;&#x7AEF;&#x5206;&#x652F;&#x5230;&#x5F53;&#x524D;&#x5206;&#x652F;&#xFF0C;&#x5E76;&#x81EA;&#x52A8;&#x5408;&#x5E76;</span>
 <span class="token function">git</span> pull origin <span class="token operator">&lt;</span>&#x8FDC;&#x7A0B;&#x5206;&#x652F;&#x540D;<span class="token operator">&gt;</span>
-</pre><h4 class="mume-header" id="%E5%AE%89%E5%85%A8%E6%8B%89%E5%8F%96">&#x5B89;&#x5168;&#x62C9;&#x53D6;</h4>
+</pre><h5 class="mume-header" id="%E5%AE%89%E5%85%A8%E6%8B%89%E5%8F%96">&#x5B89;&#x5168;&#x62C9;&#x53D6;</h5>
 
 <pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token comment"># Step1.&#x83B7;&#x53D6;&#x8FDC;&#x7A0B;master&#x5206;&#x652F;&#x5230;&#x672C;&#x5730;&#x521B;&#x5EFA;&#x4E3A;tmp</span>
 <span class="token function">git</span> fetch origin master:tmp

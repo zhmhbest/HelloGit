@@ -80,11 +80,16 @@ git push
 # 拉取云端分支到本地并创建新的本地分支
 git fetch origin <远程分支名>:<本地分支名>
 
+# 设置执行pull操作时的合并方法
+git config pull.rebase false  # merge (the default strategy)
+git config pull.rebase true   # rebase
+git config pull.ff only       # fast-forward only
+
 # 拉取云端分支到当前分支，并自动合并
 git pull origin <远程分支名>
 ```
 
-#### 安全拉取
+##### 安全拉取
 
 ```bash
 # Step1.获取远程master分支到本地创建为tmp
