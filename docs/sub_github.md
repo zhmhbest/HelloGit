@@ -38,6 +38,9 @@ git clone https://github.com/<用户名>/<远程仓库名>.git
 
 # ssh
 git clone git@github.com:<用户名>/<远程仓库名>.git
+
+# 下载最新版本（不下载过去的提交记录）
+git clone --depth=1 <url>
 ```
 
 #### 关联云端
